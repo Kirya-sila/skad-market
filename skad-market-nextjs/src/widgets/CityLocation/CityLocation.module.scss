@@ -1,0 +1,19 @@
+.loc {
+  grid-area: loc;
+  justify-self: center;
+  font-size: 14px;
+
+  color: var(--primary-darkest-gray);
+
+  margin-left: 5px;
+
+  @include desktop {
+    justify-self: start;
+    margin-left: -3px;
+  }
+
+  @include tablet {
+    min-width: 7rem;
+    //margin-left: -3px;
+  }
+}

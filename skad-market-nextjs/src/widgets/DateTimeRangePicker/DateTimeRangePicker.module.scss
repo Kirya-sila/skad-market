@@ -1,0 +1,94 @@
+// .dropdownContainer {
+//     padding: 16px;
+//     width: 300px;
+//     background-color: #fff;
+//     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//     border-radius: 8px;
+//   }
+//   .datePicker {
+//     margin-bottom: 16px;
+//   }
+//   .timeRange {
+//     margin-bottom: 16px;
+//   }
+//   h4 {
+//     margin-bottom: 8px;
+//     font-size: 14px;
+//     color: #333;
+//   }
+.datepickerWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.timeSpan {
+  position: absolute;
+  left: 95px;
+  z-index: 2;
+}
+.timeLabels {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  input {
+    height: 36px;
+    border-radius: 8px;
+    width: 120px;
+    border: none;
+    outline: none;
+    padding-left: 8px;
+    color: var(--primary-darkest-gray);
+  }
+}
+
+.datePickerMain {
+  width: 256px;
+  height: 56px;
+  border-radius: 10px;
+  background-color: var(--secondary-light-gray-2);
+  color: var(--primary-darkest-gray);
+  border: none;
+
+  &:hover {
+    background-color: var(--secondary-light-gray-2);
+    border: none;
+  }
+  &:focus {
+    border: none !important;
+    outline: none !important;
+    background-color: var(--secondary-light-gray-2);
+    box-shadow: none;
+  }
+
+  input {
+    font-size: 16px !important;
+    color: var(--primary-darkest-gray) !important;
+    font-weight: 500 !important;
+    &::placeholder {
+      color: var(--primary-darkest-gray) !important;
+    }
+    &:focus {
+      border: none !important;
+      outline: none !important;
+      box-shadow: none;
+    }
+  }
+}
+.datepickerPopup {
+  li {
+    width: 100% !important;
+    margin: 0 !important;
+    button {
+      width: 100%;
+      box-shadow: none;
+      height: 36px;
+      margin-bottom: 12px;
+      &::before {
+        content: 'Применить';
+      }
+      span {
+        display: none;
+      }
+    }
+  }
+}

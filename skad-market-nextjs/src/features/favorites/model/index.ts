@@ -1,0 +1,1 @@
+export { favoritesStore } from './favoritesStore'

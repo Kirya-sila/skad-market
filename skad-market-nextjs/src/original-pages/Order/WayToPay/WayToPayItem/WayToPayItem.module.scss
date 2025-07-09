@@ -1,0 +1,29 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.card {
+  background-color: var(--primary-lightest-gray);
+  padding: 18px 24px 12px 24px;
+  border-radius: 10px;
+  width: 162px;
+  align-items: center;
+  cursor: pointer;
+}
+
+.icon {
+  min-width: 40px;
+  width: 40px;
+  height: 28px;
+}
+
+.text {
+  @include mixins.body;
+}
+
+.checked {
+  background-color: var(--primary-black);
+}
+
+.text-checked {
+  color: var(--primary-white);
+}

@@ -1,0 +1,24 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+
+  :global {
+    .slick-slider {
+      .slick-arrow {
+        z-index: 1;
+
+        &:before {
+          display: none;
+        }
+
+        &.slick-prev {
+          left: 16px;
+        }
+
+        &.slick-next {
+          right: 30px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  align-items: center;
+  margin: auto;
+  margin-top: 70px;
+  gap: 20px;
+  color: var(--primary-black);
+  width: 536px;
+  > :first-child {
+    font-size: 36px;
+    font-weight: 600;
+    @include media.tablet {
+      font-size: 24px;
+    }
+  }
+  > :nth-child(3) {
+    font-size: 18px;
+    line-height: 28px;
+    text-align: center;
+    @include media.tablet {
+      font-size: 14px;
+    }
+  }
+
+  @include media.tablet {
+    width: 100%;
+  }
+}
+
+.category-button {
+  img {
+    width: 44px;
+    height: auto !important;
+  }
+  @media (min-width: 768px) and (max-width: 800px) {
+    padding: 15px;
+  }
+
+  @media (min-width: 360px) and (max-width: 420px) {
+    padding: clamp(5px, 2vw, 10px);
+  }
+
+  // width: clamp(106px, 35vw, 424px);
+}

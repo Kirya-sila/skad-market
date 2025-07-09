@@ -1,0 +1,7 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  justify-content: flex-start;
+  gap: 24px;
+}

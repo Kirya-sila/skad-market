@@ -1,0 +1,1 @@
+export { SkadMarketLogo } from "./SkadMarketLogo";

@@ -1,0 +1,50 @@
+.holder {
+  margin-top: 30px;
+}
+
+.brandTitle-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brandTitle {
+  background: none;
+  border: none;
+  color: #909799;
+  font-size: 18px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.brandTitle-selected {
+  color: black;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 1em 1em;
+
+  th {
+    font-weight: 600;
+    background: #f1f5f6;
+    padding: 15px;
+    border-radius: 10px;
+  }
+
+  td {
+    vertical-align: top;
+
+    color: #136793;
+  }
+  .car-model {
+    cursor: pointer;
+  }
+}

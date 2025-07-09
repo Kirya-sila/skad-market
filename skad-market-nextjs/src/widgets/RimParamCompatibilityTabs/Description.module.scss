@@ -1,0 +1,37 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.description {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  margin-top: 16px;
+
+  border: 1px solid var(--primary-gray);
+  border-radius: 20px;
+  position: relative;
+  padding: 16px 30px 16px 24px;
+}
+
+.title {
+  color: var(--primary-black);
+}
+
+.text {
+  color: var(--primary-dark-gray);
+}
+
+.close {
+  @include mixins.centering;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 12px;
+  top: 14px;
+
+  svg {
+    width: 10px;
+    height: 10px;
+  }
+}

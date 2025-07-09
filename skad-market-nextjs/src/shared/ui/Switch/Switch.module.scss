@@ -1,0 +1,88 @@
+@import "@mixins/media.scss";
+@import "@mixins/mixins.scss";
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+  outline: none;
+
+  @include tablet {
+    width: 32px;
+    height: 18px;
+  }
+
+  &:not(.disabled) {
+    cursor: pointer;
+
+    &:focus {
+      .slider {
+        outline-color: var(--primary-light-blue);
+      }
+    }
+  }
+}
+
+.switch-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+
+.slider {
+  outline: 2px solid transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--primary-darkest-gray);
+  transition: .2s;
+  border-radius: 34px;
+
+  &:hover {
+    background-color: var(--primary-black);
+  }
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background-color: var(--primary-lightest-gray);
+  transition: .4s;
+  border-radius: 50%;
+
+  @include tablet {
+    height: 14px;
+    width: 14px;
+  }
+}
+
+.switch-input:checked + .slider {
+  background-color: var(--primary-main-blue);
+
+  &:hover {
+    background-color: var(--primary-light-blue);
+  }
+}
+
+.switch-input:checked + .slider:before {
+  transform: translateX(16px);
+
+  @include tablet {
+    transform: translateX(14px);
+  }
+}
+
+.disabled {
+  .slider, .switch-input:checked + .slider {
+    background-color: var(--primary-light-gray);
+  }
+
+}

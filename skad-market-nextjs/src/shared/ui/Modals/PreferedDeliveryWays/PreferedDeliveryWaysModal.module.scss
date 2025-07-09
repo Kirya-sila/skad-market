@@ -1,0 +1,103 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.modal-container {
+  position: relative;
+  padding: 40px;
+  width: 528px;
+  @include media.tablet {
+    max-width: none;
+    padding-top: 0;
+    padding: 0;
+  }
+}
+
+.title {
+  @include mixins.h2;
+  margin-bottom: 24px;
+}
+
+.delivery-items-container {
+  align-items: flex-start;
+  gap: 24px;
+  margin-bottom: 24px;
+  max-height: 40vh;
+  overflow-y: auto;
+  padding-right: 16px;
+  width: 100%;
+}
+
+.delivery-item {
+  align-items: flex-start;
+  gap: 0;
+  width: 100%;
+  > div:first-child {
+    @include mixins.body;
+    font-weight: 600;
+    color: var(--primary-dark-gray);
+    width: 100%;
+    justify-content: space-between;
+  }
+  > span {
+    @include mixins.h4;
+  }
+}
+
+.root {
+  @include media.tablet {
+    padding: 16px 24px;
+  }
+}
+
+.radio-root {
+  align-items: flex-start;
+  width: 100%;
+}
+
+.close-base {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+
+  svg {
+    width: 15px;
+    height: 15px;
+
+    path {
+      fill: var(--primary-darkest-gray);
+    }
+  }
+
+  &:hover {
+    svg path {
+      fill: var(--primary-black);
+    }
+  }
+}
+
+.close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+
+  @extend .close-base;
+  @include media.tablet {
+    display: none;
+  }
+}
+
+.close-container {
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid var(--secondary-light-gray-2);
+  > span {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+  }
+}
+
+.body {
+  padding: 0;
+  overflow-x: hidden;
+}

@@ -1,0 +1,159 @@
+@import "@mixins/media.scss";
+@import "@mixins/mixins.scss";
+
+.product-selection {
+  width: 100%;
+  height: 174px;
+}
+
+.tab-header {
+  display: flex;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  color: var(--primary-black);
+
+  &-item {
+    height: 42px;
+    opacity: 0.4;
+    cursor: pointer;
+    width: fit-content;
+    padding: 10px 35px;
+    background-color: var(--primary-white);
+    z-index: 1;
+    margin-bottom: -1px;
+
+    box-shadow: 0 8px 40px 0 #1C283328;
+    //box-shadow: 0 8px 40px 0 black;
+    //clip-path: inset(-25px -25px 0 -25px);
+
+    &-active {
+      background-color: var(--primary-white);
+      opacity: 1;
+      z-index: 5;
+      clip-path: inset(-25px -25px 0 -25px);
+    }
+
+    &:hover:not(&-active) {
+      opacity: .85;
+
+      //box-shadow: 0 10px 40px 0 #1C283317;
+    }
+
+    &:first-child {
+      border-radius: 20px 0 0 0;
+
+      &:not(.tab-header-item-active) {
+        clip-path: inset(-25px -25px 0 -25px);
+      }
+    }
+
+    &:last-child {
+      border-radius: 0 20px 0 0;
+
+      &:not(.tab-header-item-active) {
+        clip-path: inset(-25px -25px 0 -25px);
+      }
+    }
+  }
+}
+
+.tab-body {
+  background-color: var(--primary-white);
+  box-shadow: 0 8px 40px 0 #1C283317;
+  border-radius: 0 20px 20px 20px;
+  flex-direction: column;
+  height: 132px;
+  padding: 24px;
+  display: flex;
+  width: 100%;
+  gap: 14px;
+  z-index: 3;
+  position: relative;
+
+  @include _1200 {
+    .first-line {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .checkboxes {
+      margin-left: 20px;
+      margin-top: 0;
+    }
+
+    .validate-error {
+      top: 54px;
+    }
+
+    height: 216px;
+    gap: 8px;
+  }
+
+  @include desktop {
+    gap: 6px;
+  }
+}
+
+.validate-error {
+  position: absolute;
+  top: 6px;
+  color: var(--primary-red);
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.first-line {
+  display: flex;
+  gap: 24px;
+}
+
+.selections {
+  display: flex;
+  gap: 4px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 8px;
+
+  &-title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    white-space: nowrap;
+  }
+
+  &-body {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.second-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.third-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  button {
+    @include centering;
+    width: 100%;
+  }
+}
+
+div.radio-buttons {
+  display: flex;
+  gap: 24px;
+}

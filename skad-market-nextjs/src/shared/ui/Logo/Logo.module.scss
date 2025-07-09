@@ -1,0 +1,109 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.logo {
+  width: 200px;
+  // height: 64px;
+  cursor: pointer;
+
+  & svg {
+    width: 200px;
+    height: 64px;
+  }
+
+  &:hover,
+  &:active {
+    svg path {
+      fill: var(--primary-light-blue);
+    }
+  }
+
+  @include media.desktop {
+    width: 130px;
+    // min-width: 130px;
+    min-width: 168px;
+
+    & svg {
+      width: 150px;
+      max-height: 60px;
+    }
+  }
+
+  @include media.tablet {
+    width: 120px;
+    min-width: 130px;
+    // height: 34px;
+
+    & svg {
+      width: 120px;
+      max-height: 40px;
+    }
+  }
+
+  @include media.mobile {
+    width: 100px;
+    min-width: 100px;
+
+    & svg {
+      width: 100px;
+      max-height: 35px;
+    }
+  }
+}
+
+// @media (max-width: 1024px) {
+//   .logo {
+//     min-width: 168px;
+//     min-height: 54px;
+//   }
+// }
+
+.logo-tires {
+  @media (max-width: 768px) {
+    min-width: 138px;
+    min-height: 44px;
+  }
+}
+
+//@media (max-width: 360px) {
+//  .logo {
+//    min-width: 108px;
+//    min-height: 34px;
+//  }
+//}
+
+// @include media.desktop {
+//   .logo {
+//     width: 130px;
+//     min-width: 130px;
+
+//     & svg {
+//       width: 150px;
+//       max-height: 60px;
+//     }
+//   }
+// }
+
+// @include media.tablet {
+//   .logo {
+//     width: 120px;
+//     min-width: 130px;
+
+//     & svg {
+//       width: 120px;
+//       max-height: 40px;
+//     }
+//   }
+// }
+
+// @include media.mobile {
+//   .logo {
+//     width: 100px;
+//     min-width: 100px;
+
+//     & svg {
+//       width: 100px;
+//       max-height: 35px;
+//     }
+//   }
+// }

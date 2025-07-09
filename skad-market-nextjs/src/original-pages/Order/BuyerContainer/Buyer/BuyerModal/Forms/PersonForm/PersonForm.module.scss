@@ -1,0 +1,13 @@
+.form {
+  gap: 16px;
+}
+
+.form-fields-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.prefix {
+  left: 25px;
+}

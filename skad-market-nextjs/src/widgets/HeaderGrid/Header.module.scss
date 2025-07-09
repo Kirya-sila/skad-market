@@ -1,0 +1,610 @@
+@import '@mixins/media.scss';
+@import '@mixins/mixins.scss';
+
+.header-wrapper {
+  width: 100%;
+  max-width: 1440px;
+  max-width: inherit;
+  min-height: 100px;
+  padding: inherit;
+  // position: relative;
+}
+
+.search-underlay {
+  background-color: var(--opacity-black-40);
+  width: 200vw;
+  height: 100vh;
+  margin-left: -3
+  00px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+
+  @include tablet {
+    background-color: var(--primary-white);
+  }
+}
+
+.header {
+  width: 100%;
+  z-index: 2;
+  max-width: 1440px;
+
+  position: sticky;
+  // left: 50%;
+  // transform: translateX(-50%);
+  top: 0;
+  // padding: inherit;
+  padding-top: 10px;
+
+  background-color: var(--primary-white);
+
+  &-shadow {
+    box-shadow: 0 4px 20px 0 #1b22252e;
+  }
+
+  @include desktop {
+    //padding: 10px 40px 20px 40px;
+  }
+
+  @include tablet {
+    // padding: 10px 24px 0 24px;
+    // left: 0;
+    // transform: translateX(0);
+    button {
+      justify-self: center;
+    }
+  }
+
+  @include mobile {
+    // padding: 10px 15px 3px 15px;
+  }
+
+  //@media (max-width: 455px) {
+  //  padding: 10px 15px 20px 15px;
+  //
+  //  button {
+  //    justify-self: self-start;
+  //  }
+  //}
+
+  &.searching {
+    .top-line {
+      :global {
+        #top {
+          display: none;
+        }
+      }
+
+      .logo,
+      .loc {
+        display: none;
+      }
+
+      grid-template-columns: 24.8fr 3.2fr 0.9fr 0.5fr 20px;
+      grid-template-areas: 'search about pay help call';
+
+      & .search {
+        button {
+          max-width: 67px !important;
+        }
+      }
+
+      @include desktop {
+        grid-template-columns: 1fr 0.109fr 0.109fr 0.109fr 20px;
+
+        & .search {
+          button {
+            max-width: 64px !important;
+          }
+        }
+      }
+
+      @include tablet {
+        grid-template-areas: 'search cancel';
+        grid-template-columns: 90.8% 0.2fr;
+
+        .cancel {
+          z-index: 1;
+          display: flex;
+          color: var(--primary-main-blue);
+        }
+
+        :global {
+          #searchInputSuggestions {
+            background: transparent;
+            box-shadow: unset;
+            margin-left: -27px;
+            border-radius: 0;
+            width: 100vw;
+            margin-top: 55px;
+
+            & > div {
+              padding: 13px 40px;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 600px) {
+        margin-right: 20px;
+      }
+
+      @include mobile {
+        margin-right: 10px;
+        grid-template-columns: 87% 1fr;
+      }
+    }
+  }
+}
+
+.top-line,
+.bottom-line {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-template-rows: 50px;
+  place-items: center;
+  column-gap: 1rem;
+  row-gap: 20px;
+
+  @include _1200 {
+    column-gap: 0.5rem;
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(7, 1fr) repeat(4, 25px);
+  }
+
+  @include tablet {
+    grid-template-columns: 36px repeat(3, 0.7fr) 0.8fr 1fr 0.5fr 20px;
+    grid-template-rows: 40px;
+  }
+
+  @media (max-width: 600px) {
+    grid-template-columns: 30px minmax(60px, 20%) minmax(50px, 20%) 40% 20px 20px;
+  }
+}
+
+.top-line {
+  button {
+    color: var(--primary-darkest-gray);
+  }
+
+  grid-template-columns: 220px 1fr 2.8fr 0.7fr 0.7fr 0.3fr 20px;
+  grid-template-areas: 'logo   loc search about pay   help  call';
+  column-gap: 24px;
+
+  :global {
+    #top {
+      justify-self: left;
+    }
+  }
+
+  @include desktop {
+    grid-template-areas: 'logo search about pay help call';
+    grid-template-columns: 170px 2.4fr 0.4fr 0.4fr 0.4fr 20px;
+    grid-gap: 24px;
+
+    :global {
+      #top {
+        display: none;
+      }
+    }
+  }
+
+  @include tablet {
+    grid-template-areas: 'logo search userIcon burgerIcon';
+    grid-template-columns: 36px 1fr 20px 20px;
+    grid-gap: 15px;
+  }
+
+  //@media (max-width: 600px) {
+  //  grid-template-areas: "logo search search search search search userIcon userIcon burgerIcon";
+  //  grid-template-columns: 36px repeat(5, 1fr) 0 20px 20px;
+  //  grid-gap: 5px;
+  //}
+
+  @include mobile {
+    grid-template-columns: 44px 1fr 20px 20px;
+    grid-gap: 5px;
+  }
+}
+
+.bottom-line {
+  //TODO: uncomment once favorites could be shown
+  grid-template-columns: 0.4fr 0.45fr 1fr 1.4fr 0.4fr 0.8fr 0.9fr /* 0.57fr */ /*  0.77fr  */ 0.63fr;
+  overflow-x: auto;
+  //TODO: uncomment and replace grid-template-areas once favorites and orders could be shown
+  // grid-template-areas: 'rims tires accry sel promo . usr orders fav cart';
+  grid-template-areas: 'rims tires accry sel promo . usr orders cart';
+  column-gap: 1.4vw;
+
+  @media (max-width: 1200px) {
+    column-gap: 0.4vw;
+  }
+
+  margin-top: 10px;
+
+  :global {
+    #bottom {
+      justify-self: start;
+
+      div[role='tooltip'] {
+        display: none;
+      }
+    }
+  }
+
+  @include desktop {
+    grid-template-areas: 'loc rims tires accry sel promo usr orders cart';
+    //grid-template-columns: 2fr repeat(2, 0.8fr) 1fr 2.2fr 0.8fr repeat(4, 0.5fr);
+    grid-template-columns: 1.85fr 0.7fr 0.7fr 1.7fr 1.2fr repeat(4, 0.5fr);
+    grid-gap: 0;
+    padding: 0 8px;
+    .sel {
+      min-width: 170px;
+    }
+
+    .accry {
+      min-width: 125px;
+    }
+
+    div[role='tooltip'] {
+      display: block;
+    }
+  }
+
+  @media (max-width: 900px) {
+    //grid-template-columns: 1.8fr repeat(2, 1fr) 1.8fr 2.4fr 0.8fr repeat(4, 0.5fr);
+    grid-template-columns: 1.7fr 0.7fr 0.7fr 2.1fr 2.1fr 1.1fr repeat(3, 0.5fr);
+  }
+
+  @include tablet {
+    margin-top: 0;
+    div[role='tooltip'] {
+      display: none;
+    }
+  }
+
+  //@media (max-width: 600px) {
+  //  grid-template-areas: "loc rims tires accry sel promo usr orders fav cart";
+  //  grid-template-columns: 2fr repeat(2, 0.8fr) 2fr 2.2fr 0.8fr repeat(4, 0.3fr);
+  //}
+
+  @include tablet {
+    grid-template-areas: 'loc rims tires accry sel promo';
+    grid-template-columns: 1.8fr 0.7fr 0.7fr 1.6fr 2.2fr 0.7fr;
+    grid-gap: 10px;
+
+    .sel {
+      min-width: 150px;
+    }
+
+    .accry {
+      min-width: 120px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    grid-template-areas: 'rims tires accry sel promo';
+    grid-template-columns: 0.8fr 0.8fr 1.8fr 2fr 0.8fr;
+    width: 100%;
+
+    :global {
+      #bottom {
+        display: none;
+      }
+    }
+
+    .sel {
+      min-width: 150px;
+    }
+
+    .accry {
+      min-width: 120px;
+    }
+  }
+
+  @include mobile {
+    grid-gap: 15px;
+    height: 35px;
+    overflow-y: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-light-gray);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--opacity-black-40);
+  }
+}
+
+svg.logo {
+  grid-area: logo;
+  justify-self: start;
+  max-width: 220px;
+  width: 100%;
+
+  @include desktop {
+    min-width: 130px;
+  }
+
+  //@media (max-width: 850px) {
+  //  width: 10vw;
+  //  min-width: 115px;
+  //}
+
+  @include tablet {
+    width: 36px;
+    height: 36px;
+    justify-self: center;
+  }
+}
+
+.header button.loc {
+  grid-area: loc;
+  justify-self: center;
+  font-size: 14px;
+
+  color: var(--primary-darkest-gray);
+
+  margin-left: 5px;
+
+  @include desktop {
+    justify-self: start;
+    margin-left: -3px;
+  }
+
+  @include tablet {
+    min-width: 7rem;
+    //margin-left: -3px;
+  }
+}
+
+.header {
+  #top {
+    justify-self: left;
+  }
+}
+
+.header button {
+  &.top-loc {
+    justify-self: left;
+    min-width: 100px;
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &.bottom-loc {
+    display: none;
+    @include desktop {
+      display: flex;
+    }
+  }
+}
+
+.search {
+  grid-area: search;
+  z-index: 1;
+  margin-top: 3px;
+
+  //
+  //button {
+  //  width: 97px;
+  //}
+
+  //@include desktop {
+  //  button {
+  //    width: 97px;
+  //  }
+  //}
+
+  @include tablet {
+    margin-right: 3px;
+  }
+
+  @include mobile {
+    margin-right: 6px;
+  }
+}
+
+button.user-icon {
+  grid-area: userIcon;
+  display: none;
+  justify-self: end;
+}
+
+button.burger-icon {
+  grid-area: burgerIcon;
+  display: none;
+}
+
+.about {
+  grid-area: about;
+  @include desktop {
+    min-width: 110px;
+  }
+}
+
+.pay {
+  grid-area: pay;
+
+  @include desktop {
+    min-width: 110px;
+  }
+}
+
+.help {
+  grid-area: help;
+}
+
+.call {
+  grid-area: call;
+}
+
+.rims {
+  grid-area: rims;
+  justify-self: left;
+
+  @include desktop {
+    justify-self: center;
+  }
+}
+
+.tires {
+  grid-area: tires;
+}
+
+.accry {
+  grid-area: accry;
+  //min-width: 12vw;
+  justify-self: center;
+}
+
+button.sel {
+  grid-area: sel;
+  padding-left: 4px;
+
+  //@include tablet {
+  //  width: clamp(9rem, 20vw, 10rem);
+  //}
+}
+
+.promo {
+  grid-area: promo;
+}
+
+.usr {
+  grid-area: usr;
+}
+
+.orders {
+  grid-area: orders;
+}
+
+.fav {
+  grid-area: fav;
+}
+
+.cart {
+  grid-area: cart;
+}
+
+.usr,
+.orders,
+.fav,
+.cart {
+  @include desktop {
+    & > [role='label'] {
+      display: none;
+    }
+  }
+}
+
+//.rims, .tires, .accry, .sel, .promo {
+//  justify-self: start;
+//  @include _1200 {
+//    .promo {
+//      justify-self: end !important;
+//    }
+//  }
+//}
+
+.call,
+.cart,
+.usr,
+.orders,
+.fav,
+.about,
+.pay {
+  justify-self: end;
+}
+
+.header {
+  button {
+    @include desktop {
+      &.orders {
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}
+
+.sel {
+  min-width: 15rem;
+  @include huge {
+    min-width: 12rem;
+  }
+  //@include _1200 {
+  //  min-width: 10rem;
+  //}
+  @include desktop {
+    //justify-self: center;
+    min-width: 7rem;
+  }
+}
+
+@include tablet {
+  button.burger-icon {
+    display: block;
+  }
+
+  button.user-icon {
+    display: block;
+  }
+
+  .header {
+    button {
+      &.about,
+      &.pay,
+      &.help,
+      &.call,
+      &.usr,
+      &.orders,
+      &.fav,
+      &.cart {
+        display: none;
+      }
+
+      &.promo {
+        justify-self: end;
+      }
+
+      &.accry {
+        justify-self: center;
+      }
+
+      &.loc {
+        justify-self: start;
+      }
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    button {
+      &.loc {
+        display: none;
+      }
+
+      //&.sel {
+      //  justify-self: center;
+      //}
+    }
+  }
+}
+
+.cancel {
+  grid-area: cancel;
+  display: none;
+}

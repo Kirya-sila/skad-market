@@ -1,0 +1,1 @@
+export { TooltipBaseVariant } from './TooltipBaseVariant'

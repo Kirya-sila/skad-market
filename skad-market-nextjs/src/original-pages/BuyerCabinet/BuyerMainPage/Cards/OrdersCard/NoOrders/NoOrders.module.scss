@@ -1,0 +1,10 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.catalog-buttons {
+  > div {
+    margin-bottom: 24px;
+    padding: 3px 10px;
+    border-radius: 10px;
+  }
+}

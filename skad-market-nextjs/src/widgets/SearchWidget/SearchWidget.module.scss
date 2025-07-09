@@ -1,0 +1,58 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.search {
+  height: 48px;
+  width: 100%;
+  border: 2px solid var(--primary-main-blue);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  .placeholder {
+    color: var(--primary-dark-gray);
+
+    padding-left: 15px;
+    line-height: 20px;
+    font-size: 16px;
+  }
+
+  @include media.mobile {
+    border-radius: 10px;
+  }
+
+  &.filled {
+    border-color: var(--primary-lightest-gray);
+    background-color: var(--primary-lightest-gray);
+
+    .input {
+      background-color: var(--primary-lightest-gray);
+    }
+
+    .button {
+      border-radius: 9px;
+    }
+  }
+}
+.button {
+  height: 100%;
+  outline: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  @include mixins.centering;
+  width: 80px;
+  border-radius: 0 8px 8px 0;
+  background-color: var(--primary-main-blue);
+  cursor: pointer;
+
+  @include media.tablet {
+    width: 60px;
+  }
+
+  @include media.mobile {
+    width: 75px;
+    border-radius: 0 9px 9px 0;
+  }
+}

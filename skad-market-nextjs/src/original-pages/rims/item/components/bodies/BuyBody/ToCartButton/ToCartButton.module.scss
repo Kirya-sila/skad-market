@@ -1,0 +1,35 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.submit {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #136793;
+  color: white;
+  border: none;
+  font-weight: 400;
+  width: 100%;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.submit-price {
+  font-weight: 600;
+}
+
+.total {
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.button-content {
+  @include mixins.flexColumn;
+  font-family: 'Hauora', sans-serif;
+  font-size: 14px;
+}
+
+.wrapper {
+  width: 100%;
+}

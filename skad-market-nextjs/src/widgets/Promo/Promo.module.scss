@@ -1,0 +1,338 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.promo {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 40px;
+  padding: 0;
+
+  @include media.desktop {
+    margin-bottom: 32px;
+  }
+
+  @include media.tablet {
+    margin-bottom: 24px;
+  }
+
+  @include media.mobile {
+    margin-bottom: 16px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 600;
+  color: var(--primary-black);
+
+  @include media.desktop {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  @include media.tablet {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  @include media.mobile {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.body {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  padding-bottom: 5px;
+
+  @media (max-width: 900px) {
+    flex-direction: row;
+  }
+
+  @include media.mobile {
+    scroll-snap-type: x mandatory;
+    padding: 0 15px 5px 15px;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+      height: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: var(--opacity-white-80);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: var(--opacity-black-20);
+      border-radius: 20px;
+    }
+  }
+
+  overflow-x: auto;
+  gap: 24px;
+
+  @include media.mobile {
+    gap: 8px
+  }
+}
+
+.top-row, .bottom-row {
+  display: flex;
+  gap: 24px;
+
+  @include media.mobile {
+    gap: 8px
+  }
+}
+
+.expand {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--primary-main-blue);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  cursor: pointer;
+
+  margin-top: 10px;
+
+  @include media.tablet {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  svg path {
+    fill: var(--primary-main-blue);
+  }
+
+  &:hover {
+    color: var(--primary-light-blue);
+
+    svg path {
+      fill: var(--primary-light-blue);
+    }
+  }
+}
+
+.banner {
+  display: flex;
+  position: relative;
+  padding: 20px 30px;
+  border-radius: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include media.tablet {
+    border-radius: 12px;
+  }
+
+  &:not(#up) {
+    @media (max-width: 900px) {
+      padding: 20px;
+      height: 202px;
+      width: clamp(300px, 60vw, 474px);
+      min-width: 300px;
+
+      div.banner-title {
+        font-size: 18px;
+        line-height: 24px;
+        width: 70%;
+      }
+    }
+
+    @include media.mobile {
+      width: 82vw;
+      min-width: 100px;
+      scroll-snap-align: center;
+      height: 92px;
+      padding: 8px 15px;
+      flex-direction: column-reverse;
+
+      div.banner-title {
+        font-size: 14px;
+        line-height: 20px;
+        width: 70%;
+      }
+
+      div.banner-label {
+        font-size: 10px;
+        line-height: 14px;
+      }
+    }
+  }
+}
+
+.large {
+  @extend .banner;
+  //width: clamp(450px, 50vw, 648px);
+  width: clamp(450px, 50vw, 100%);
+  min-width: 380px;
+  height: 278px;
+
+  @include media.desktop {
+    height: 202px;
+    padding: 24px 20px;
+
+    div.banner-title {
+      width: 50%;
+      font-size: 20px;
+      line-height: 26px;
+    }
+  }
+
+  .banner-title {
+    width: 40%;
+    font-size: 24px;
+    line-height: 30px;
+    font-weight: 600;
+  }
+}
+
+.small {
+  @extend .banner;
+  height: 208px;
+  //width: clamp(250px, 40vw, 424px);
+  width: clamp(250px, 40vw, 100%);
+
+  @include media.desktop {
+    height: 151px;
+    padding: 20px;
+
+    div.banner-title {
+      width: 60%;
+      font-size: 16px;
+      line-height: 22px;
+    }
+  }
+
+  .banner-title {
+    width: 60%;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 600;
+  }
+}
+
+.banner-label {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--opacity-black-40);
+  z-index: 1;
+}
+
+.banner-title {
+  color: var(--opacity-black-90);
+  z-index: 1;
+}
+
+.banner-image {
+  &, img {
+    position: absolute;
+  }
+}
+
+.green {
+  background: #baf5bc;
+}
+
+.gray {
+  background: #DBE2F3;
+}
+
+.orange {
+  background: #FFE0CB;
+}
+
+.lightest-gray {
+  background: #F1F5F6;
+}
+
+.yellow {
+  background: #FFE7A3;
+}
+
+.blackFriday {
+  img {
+    right: 10px;
+    bottom: 10px;
+    width: 50%;
+    max-width: 340px;
+
+    @include media.mobile {
+      width: 30%;
+    }
+  }
+}
+
+.freeShipping {
+  img {
+    right: 19px;
+    width: 50%;
+    bottom: 60px;
+    max-width: 450px;
+
+    @include media.mobile {
+      width: 40%;
+      bottom: 10px;
+      right: 10px;
+    }
+  }
+}
+
+.firstPurchase {
+  img {
+    right: 30px;
+    top: 30px;
+    width: 50%;
+    max-width: 280px;
+
+    @include media.mobile {
+      width: 30%;
+      top: 30px;
+      right: 10px;
+    }
+  }
+}
+
+.installPlan {
+  img {
+    right: 40px;
+    top: 25%;
+    width: 30%;
+    max-width: 150px;
+
+    @include media.mobile {
+      width: 30%;
+      top: 5px;
+      right: 10px;
+    }
+  }
+}
+
+.gift {
+  img {
+    right: 10%;
+    bottom: 50%;
+    transform: translate(0, 50%);
+    width: 13%;
+    max-width: 65px;
+
+    @include media.mobile {
+      width: 8%;
+      bottom: 50%;
+      transform: translate(0, 50%);
+      right: 20px;
+    }
+  }
+}

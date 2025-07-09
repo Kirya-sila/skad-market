@@ -1,0 +1,10 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  user-select: none;
+  justify-content: space-between;
+  @media (min-width: 970px) {
+    padding-left: 12px;
+  }
+}

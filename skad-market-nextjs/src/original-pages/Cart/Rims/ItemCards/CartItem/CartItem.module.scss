@@ -1,0 +1,51 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+* {
+  font-family: 'Hauora', sans-serif;
+}
+
+.card {
+  padding: 16px 0;
+  border-top: 1px solid var(--primary-light-gray);
+  &:last-child {
+    border-bottom: 1px solid var(--primary-light-gray);
+  }
+  > div {
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 16px;
+    width: 100%;
+  }
+}
+
+.card-not-available {
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.checkbox-image-conatiner {
+  flex-basis: 10%;
+  justify-content: flex-start;
+  gap: 12px;
+}
+
+.image {
+  width: 86px;
+  @include media.mobile {
+    width: 60px;
+  }
+  @include media.mobile {
+    width: 38px;
+  }
+}
+
+.restore-button {
+  width: auto;
+}
+
+.deleted-item-card {
+  padding: 44px 0;
+  border-top: 1px solid var(--primary-light-gray);
+  align-items: flex-start;
+}

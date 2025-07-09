@@ -1,0 +1,39 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.image-body-item {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  position: relative;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.features-small {
+  display: none;
+}
+
+.feature-item {
+  background: #f1f5f6;
+  padding: 10px;
+  border-radius: 10px;
+  color: #656f72;
+  font-size: 14px;
+}
+
+.actions {
+  position: absolute;
+
+  top: 0;
+  right: 0;
+
+  > *:last-child {
+    margin-top: 20px;
+  }
+}

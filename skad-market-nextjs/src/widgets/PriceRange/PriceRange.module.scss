@@ -1,0 +1,70 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.price-range {
+}
+
+.title {
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 12px;
+
+  @include media.tablet {
+    font-size: 14px;
+  }
+}
+
+.top-line {
+  display: flex;
+  gap: 8px;
+
+  @include media.tablet {
+    justify-content: space-between;
+  }
+
+  .price {
+    position: relative;
+
+    input[type=text] {
+      padding-left: 24px !important;
+      padding-right: 22px !important;
+    }
+
+    &:before {
+      content: 'от';
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      left: 8px;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--primary-darkest-gray);
+    }
+
+    &:after {
+      content: '₽';
+      display: block;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%);
+      right: 10px;
+      font-size: 12px;
+      line-height: 16px;
+      color: var(--primary-darkest-gray);
+    }
+
+    @include media.tablet {
+      width: 94px;
+    }
+  }
+
+  .price-end {
+    @extend .price;
+
+    &:before {
+      content: 'до';
+    }
+  }
+
+}

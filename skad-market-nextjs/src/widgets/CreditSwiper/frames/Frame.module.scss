@@ -1,0 +1,168 @@
+@import '@mixins/media.scss';
+
+.frame {
+  height: 418px;
+  width: 100%;
+  position: relative;
+
+  @include desktop {
+    height: 304px;
+  }
+
+  @include tablet {
+    height: 228px;
+  }
+
+  @media (max-width: 725px) {
+    height: 212px;
+  }
+
+  svg {
+    position: absolute;
+    right: 0;
+
+    @include desktop {
+      right: -50px;
+      width: 670px;
+    }
+
+    @media (max-width: 725px) {
+      display: none;
+    }
+  }
+}
+
+.frame-background {
+  background: radial-gradient(61.78% 91.01% at 71.29% 39.23%, #ddead2 0%, #cdeae4 100%);
+}
+
+.cards {
+  img {
+    position: absolute;
+
+    &:nth-child(1) {
+      z-index: 1;
+      top: 50px;
+      right: 170px;
+      width: 270px;
+      height: 270px;
+
+      @include _1200 {
+        right: 90px;
+      }
+
+      @include desktop {
+        top: 50px;
+        right: 70px;
+        width: 216px;
+        height: 216px;
+      }
+
+      @include tablet {
+        top: 35px;
+        right: 55px;
+        width: 183px;
+        height: 183px;
+      }
+
+      @media (max-width: 725px) {
+        top: 82px;
+        right: 45%;
+        transform: translate(50%, 0);
+        width: 108px;
+        height: 108px;
+      }
+    }
+
+    &:nth-child(2) {
+      top: 70px;
+      right: 338px;
+      width: 240px;
+      height: 240px;
+
+      @include _1200 {
+        right: 260px;
+      }
+
+      @include desktop {
+        top: 67px;
+        right: 210px;
+        width: 192px;
+        height: 192px;
+      }
+
+      @include tablet {
+        top: 50px;
+        right: 170px;
+        width: 164px;
+        height: 164px;
+      }
+
+      @media (max-width: 725px) {
+        top: 92px;
+        right: calc(50% + 30px);
+        transform: translate(50%, 0);
+        width: 96px;
+        height: 96px;
+      }
+    }
+  }
+}
+
+.body {
+  position: absolute;
+  left: 112px;
+  top: 40px;
+
+  @include desktop {
+    left: 80px;
+    top: 30px;
+  }
+
+  @include tablet {
+    left: 35px;
+    top: 75px;
+  }
+
+  @media (max-width: 725px) {
+    top: 15px;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  button {
+    margin-top: 24px;
+
+    @include desktop {
+      margin-top: 20px;
+    }
+
+    @include tablet {
+      display: none;
+    }
+  }
+}
+
+.description {
+  font-size: 42px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  @include _1200 {
+    font-size: 32px;
+  }
+
+  @include desktop {
+    font-size: 28px;
+  }
+
+  @include tablet {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  @media (max-width: 725px) {
+    font-size: 24px;
+    text-align: center;
+  }
+}

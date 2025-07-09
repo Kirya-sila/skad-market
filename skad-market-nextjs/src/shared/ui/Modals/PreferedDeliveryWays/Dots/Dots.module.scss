@@ -1,0 +1,21 @@
+.root {
+  align-items: flex-start;
+}
+
+.tooltip-text {
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--primary-darkest-gray);
+}
+
+.delete {
+  > span {
+    color: var(--primary-red);
+  }
+  div {
+    svg path {
+      fill: var(--primary-red);
+    }
+  }
+}

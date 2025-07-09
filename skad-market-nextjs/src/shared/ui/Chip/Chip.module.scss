@@ -1,0 +1,43 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.chip {
+  display: flex;
+  padding: 6px 8px;
+  align-items: center;
+  background-color: var(--primary-main-blue);
+  border-radius: 8px;
+}
+
+.label {
+  color: var(--primary-white);
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.close-icon {
+  cursor: pointer;
+  margin-left: 4px;
+
+  svg {
+    width: 12px;
+    height: 12px;
+
+    path {
+      fill: var(--primary-white);
+    }
+  }
+}
+
+@include media.mobile {
+  .label {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .close-icon svg {
+    width: 10px;
+    height: 10px;
+  }
+}

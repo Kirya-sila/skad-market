@@ -1,0 +1,55 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.product-availability-and-reviews {
+  margin-top: 3px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 4px;
+
+  @include media.tablet {
+    font-size: 12px;
+  }
+
+  @include media.mobile {
+    line-height: 18px;
+  }
+
+  &.align-left {
+    flex-direction: column;
+    align-items: self-start;
+    gap: 4px;
+
+    @include media.tablet {
+      gap: 0;
+    }
+  }
+}
+
+.column {
+  @include mixins.centering;
+  gap: 8px;
+
+  @include media.tablet {
+    gap: 10px;
+  }
+}
+
+.rating, .reviews {
+  @include mixins.centering;
+  color: var(--primary-darkest-gray);
+  gap: 8px;
+
+  @include media.mobile {
+    font-size: 12px;
+    line-height: 18px;
+    font-weight: 600;
+    gap: 2px;
+  }
+}
+
+.remaining {
+  color: inherit;
+}

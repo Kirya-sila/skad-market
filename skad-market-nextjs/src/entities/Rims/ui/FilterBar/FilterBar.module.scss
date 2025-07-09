@@ -1,0 +1,37 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.filter-bar {
+  width: 200px;
+  height: 100%;
+  min-width: 200px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.switch-line {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 16px;
+
+  &.mobile {
+    font-size: 14px;
+    width: fit-content;
+    gap: 12px;
+  }
+}
+
+.reset-filters {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--primary-gray);
+  cursor: pointer;
+
+  &.active {
+    color: var(--primary-darkest-gray);
+  }
+}

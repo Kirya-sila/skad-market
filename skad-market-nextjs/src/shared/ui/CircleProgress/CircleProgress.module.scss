@@ -1,0 +1,23 @@
+.circle-progress {
+
+}
+
+.background-circle {
+  stroke: var(--primary-darkest-gray);
+  fill: transparent;
+}
+
+.progress-circle {
+  fill: transparent;
+  stroke: var(--primary-white);
+}
+
+.counter {
+  fill: var(--primary-white);
+  font-family: Hauora, serif;
+  dominant-baseline: middle;
+  text-anchor: middle;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}

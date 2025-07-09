@@ -1,0 +1,100 @@
+@use '@mixins/media';
+
+.credit-swiper {
+  :global {
+    div.slick-slider {
+      .slick-list {
+        border-radius: 20px;
+
+        @include media.tablet {
+          border-radius: 12px;
+        }
+      }
+
+      ul.slick-dots {
+        bottom: 150px;
+        width: 350px;
+        margin-left: -6px;
+
+        @include media.desktop {
+          margin-bottom: 20px;
+          margin-left: -35px;
+        }
+
+        @include media.tablet {
+          margin-left: -18px;
+          margin-bottom: 0px;
+        }
+
+        li {
+          margin: 0 7px;
+          background-color: var(--primary-black);
+          opacity: 20%;
+          border-radius: 20px;
+          width: 8px;
+          height: 8px;
+
+          &.slick-active {
+            background-color: var(--primary-black);
+            opacity: 1;
+          }
+
+          button:before {
+            content: '';
+          }
+        }
+      }
+    }
+  }
+
+  :global {
+    div.slick-slider {
+      .slick-arrow {
+        margin-top: -7px;
+      }
+      ul.slick-dots {
+        @include media.desktop {
+          bottom: 60px !important;
+        }
+
+        @include media.tablet {
+          bottom: 15px !important;
+          width: 180px !important;
+        }
+
+        li {
+          @include media.tablet {
+            margin: 0 4px !important;
+            width: 6px !important;
+            height: 6px !important;
+          }
+        }
+
+        @media (max-width: 725px) {
+          bottom: 6px !important;
+          left: 50%;
+          transform: translate(-50%, 0);
+        }
+      }
+
+      .slick-arrow {
+        @include media.tablet {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+.jolion {
+  background: linear-gradient(
+    267deg,
+    rgba(47, 109, 144, 0.9220063025210083) 37%,
+    rgba(39, 48, 128, 1) 73%,
+    rgba(12, 31, 100, 0.9) 86%
+  );
+}
+
+.jolionTitle {
+  color: var(--primary-white);
+}

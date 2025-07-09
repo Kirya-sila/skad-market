@@ -1,0 +1,33 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.h2 {
+  @include mixins.h2;
+  margin-bottom: 16px;
+  text-align: center;
+  @include media.tabletToMobile {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+}
+
+.phone-number {
+  @include mixins.h4;
+}
+
+.number-conatiner {
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.counter {
+  justify-content: center;
+  span {
+    @include mixins.bigBody;
+    color: var(--primary-gray);
+  }
+}

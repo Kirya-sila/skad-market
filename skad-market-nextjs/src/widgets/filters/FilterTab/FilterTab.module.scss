@@ -1,0 +1,31 @@
+.tabWrapper {
+  display: flex;
+  align-items: center;
+  height: 36px;
+  padding: 0 12px;
+  background-color: var(--secondary-light-gray-2);
+  border-radius: 8px;
+  gap: 4px;
+  font-size: 14px;
+}
+.tabName {
+  font-weight: 600;
+}
+.tabValue {
+  color: var(--primary-darkest-gray);
+  text-align: center;
+}
+.tabClose {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+
+  svg {
+    height: 12px;
+    color: var(--primary-darkest-gray);
+    &:hover{
+        color: var(--primary-dark-gray);
+    }
+  }
+}

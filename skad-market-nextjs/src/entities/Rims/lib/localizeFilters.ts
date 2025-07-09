@@ -1,0 +1,21 @@
+export const localizedFilters = {
+  setFrom: 'Комплект от 4-х',
+  diameters: 'Диаметр',
+  mountHolesAmounts: 'Количество крепежных отверстий',
+  holeDiameters: 'Диаметр расположения отверстий',
+  offsets: 'Вылет',
+  widthParams: 'Ширина',
+  hubHoleDiameters: 'Диаметр центрального отверстия',
+  isNew: 'Новинки',
+  isHit: 'Хиты',
+  color: 'Цвет',
+  price: 'Цена',
+  brands: 'Бренды',
+  models: 'Модели',
+  loadIndexes: 'Индекс нагрузки',
+  inStock: 'В наличии',
+  withReviews: 'Товары с отзывами',
+  diameter: 'Диаметр',
+  carBrand: 'Марка',
+  carModel: 'Модель'
+} as const

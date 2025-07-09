@@ -1,0 +1,82 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+
+  @include media.desktop {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+}
+
+.images-list {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  @include media.desktop {
+    flex-direction: row;
+  }
+}
+
+.image {
+  width: 60px;
+  height: 60px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: none;
+  border: none;
+
+  &:hover {
+    border: 1px solid #136793;
+    cursor: pointer;
+  }
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+  }
+  border-radius: 10px;
+}
+
+.image-selected {
+  border: 1px solid #136793;
+}
+
+.big-image {
+  // width: 700px;
+  display: flex;
+  align-items: center;
+  margin: auto;
+
+  @include media.desktop {
+    width: auto;
+  }
+
+  > img {
+    width: 100%;
+  }
+}
+
+.big-image-labels {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  > div {
+    background: black;
+    color: white;
+    padding: 7px;
+
+    border-radius: 15px;
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,155 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  min-width: 262px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0px 8px 40px 0px #1c283317;
+  @include media.desktop {
+    margin-top: 35px;
+    width: 100%;
+  }
+}
+
+.holder {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  gap: 10px;
+
+  @include media.tablet {
+    gap: 20px;
+    align-items: stretch;
+    > div {
+      display: flex;
+      width: 100%;
+      &:first-child {
+        flex-basis: 40%;
+      }
+    }
+  }
+}
+
+.buy-window-header {
+  display: flex;
+  justify-content: space-between;
+
+  > div:first-child {
+    font-weight: 600;
+  }
+
+  > div:last-child {
+    color: #28ad25;
+    font-size: 14px;
+    font-weight: 600;
+  }
+}
+
+
+.buy-window-price-will-change {
+  font-size: 14px;
+  color: #909799;
+}
+
+.banks {
+  margin-top: 15px;
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  background: #f1f5f6;
+
+  @include media.desktop {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+  }
+
+  > div:last-child {
+    margin-top: 12px;
+    width: 100%;
+    @include media.desktop {
+      margin-top: unset;
+    }
+
+    > div {
+      display: flex;
+      justify-content: space-between;
+      gap: 5px;
+      align-items: center;
+      @include media.desktop {
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+.delivery {
+  margin-top: 15px;
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  font-size: 14px;
+
+  > div:first-child {
+    color: #909799;
+  }
+
+  @include media.desktop {
+    flex-direction: row;
+  }
+
+  @include media.tablet {
+    flex-direction: column;
+  }
+}
+
+.counter-with-price {
+  @include mixins.centering;
+  width: 100%;
+  justify-content: space-between;
+
+  @include media.desktop {
+    > div {
+      width: 100%;
+    }
+  }
+}
+
+.buttons-wrapper {
+  @include mixins.flexColumn;
+  gap: 10px;
+}
+
+.availability-notify {
+  margin-top: 8px;
+  justify-content: center;
+  > button {
+    @include mixins.body;
+    font-weight: 600;
+  }
+}
+
+.availability-info {
+  @include mixins.body;
+  color: var(--primary-green);
+  font-weight: 600;
+}
+
+.only-four {
+  color: var(--primary-yellow);
+}
+
+.few-available {
+   color: var(--secondary-lightest-red);
+}
+
+.not-available {
+  color: var(--primary-dark-gray);
+}

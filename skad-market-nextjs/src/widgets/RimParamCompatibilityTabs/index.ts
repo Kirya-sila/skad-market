@@ -1,0 +1,1 @@
+export { RimParamCompatibilityTabs } from './RimParamCompatibilityTabs'

@@ -1,0 +1,39 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.breadcrumbs {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+
+  &:not(.disabled) {
+    cursor: pointer;
+    color: var(--primary-black);
+
+    &:hover {
+      color: var(--primary-light-blue);
+    }
+  }
+
+  @include media.tablet {
+    font-size: 10px;
+    line-height: 14px;
+  }
+}
+
+.disabled {
+  color: var(--primary-dark-gray);
+}
+
+.breadcrumbs-line {
+  display: flex;
+
+}
+
+.separator {
+  margin: 0 4px;
+  font-size: 12px;
+  user-select: none;
+  line-height: 16px;
+  color: var(--primary-dark-gray);
+}

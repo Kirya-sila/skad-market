@@ -1,0 +1,108 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.filter-item {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+
+  @include media.tablet {
+
+  }
+
+  .title {
+    font-size: 16px;
+    line-height: 20px;
+
+    @include media.tablet {
+      font-size: 14px;
+    }
+
+    svg {
+      margin-left: 7px;
+      cursor: pointer;
+    }
+  }
+
+  &.mobile {
+    white-space: nowrap;
+    flex-wrap: wrap;
+  }
+
+  .body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    max-height: 295px;
+
+    &.expanded {
+      overflow-y: auto;
+    }
+
+    &.mobile {
+      height: 35px;
+      flex-flow: column wrap;
+      flex-direction: row;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+  }
+
+
+  .expand {
+    color: var(--primary-main-blue);
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+  }
+
+  .resetIcon {
+    @include mixins.centering;
+
+    svg {
+      width: 16px;
+    }
+  }
+
+  .divider {
+    margin-top: 10px;
+    background-color: var(--primary-lightest-gray);
+  }
+
+  .bottom-divider {
+    margin-top: -4px;
+    background-color: var(--primary-lightest-gray);
+  }
+}
+
+.header {
+  &.mobile {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+.filter-tab {
+  height: 32px;
+}
+
+.mobile-color-filter-item {
+  &:not(#up_spec) {
+    .body {
+      height: fit-content;
+    }
+  }
+}
+
+.color-filter {
+  &:not(#up_spec) {
+    color: inherit;
+
+    & > div:nth-child(2) {
+      color: inherit;
+    }
+  }
+}

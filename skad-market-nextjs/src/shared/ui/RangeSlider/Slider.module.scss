@@ -1,0 +1,39 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.slider-container {
+  margin: 7px;
+  @include media.tablet {
+    margin-top: 13px;
+  }
+  :global {
+    .rc-slider {
+      &-track {
+        background-color: var(--primary-light-blue);
+        height: 2px;
+      }
+      &-handle {
+        background-color: var(--primary-main-blue);
+        border: none;
+        opacity: 1;
+        margin-top: -6px;
+
+        &-dragging {
+          background-color: var(--primary-light-blue);
+          box-shadow: 0 0 0 2px var(--primary-light-blue) !important;
+        }
+      }
+      &-step, &-rail {
+        height: 2px;
+      }
+
+      &-handle {
+
+        @include media.tablet {
+          width: 18px;
+          height: 18px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.brands {
+  width: 100%;
+
+  background-color: var(--secondary-light-gray-2);
+  padding: 60px 0 60px 60px;
+  border-radius: 20px;
+
+  @include media.desktop {
+    padding: 50px 0 50px 50px;
+  }
+
+  @include media.tablet {
+    padding: 24px 0 24px 24px;
+    border-radius: 12px;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 35px;
+  //padding: 0 13px;
+  padding-right: 60px;
+
+  @include media.desktop {
+    margin-bottom: 32px;
+    padding-right: 50px;
+  }
+
+  @include media.tablet {
+    margin-bottom: 16px;
+    padding-right: 24px;
+  }
+}
+
+.title {
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: 600;
+  color: var(--primary-black);
+
+  @include media.desktop {
+    font-size: 32px;
+    line-height: 42px;
+  }
+
+  @include media.tablet {
+    font-size: 24px;
+    line-height: 34px;
+  }
+
+  @include media.mobile {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+.expand {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--primary-main-blue);
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  cursor: pointer;
+
+  @include media.tablet {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+
+  svg path {
+    fill: var(--primary-main-blue);
+  }
+
+  &:hover {
+    color: var(--primary-light-blue);
+
+    svg path {
+      fill: var(--primary-light-blue);
+    }
+  }
+}
+
+.body {
+  gap: 32px;
+  padding-bottom: 10px;
+  margin-top: -8px;
+  margin-left: 2px;
+  overflow-x: hidden;
+
+  @include media.desktop {
+    gap: 70px;
+  }
+
+  @include media.tablet {
+    gap: 34px;
+    padding-bottom: 0;
+  }
+
+  @include media.mobile {
+    gap: 25px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--opacity-white-80);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--opacity-black-20);
+    border-radius: 20px;
+  }
+}
+
+.open-all-brands {
+  flex-wrap: wrap;
+}

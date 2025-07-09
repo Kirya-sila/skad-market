@@ -1,0 +1,24 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.rim-param-compatibility-tabs {
+  @include mixins.scrollbarSize(3px);
+}
+
+.header {
+  display: flex;
+  gap: 33px;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  &::-webkit-scrollbar {
+    display: none;
+   }
+  @include media.tablet {
+    gap: 24px
+  }
+
+  
+}
+
+.description {
+}

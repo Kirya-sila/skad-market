@@ -1,0 +1,27 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.color {
+  border-radius: 20px;
+  border: 2px solid #fff;
+  padding: 0;
+
+  > .red-line-disabled {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -40%);
+  }
+
+  &:hover {
+    &:not(:disabled) {
+      border: 2px solid #136793;
+      cursor: pointer;
+    }
+  }
+}
+
+.color-selected {
+  border: 2px solid #136793;
+}

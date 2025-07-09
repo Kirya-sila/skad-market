@@ -1,0 +1,29 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+
+.snack-bar-renderer {
+  position: fixed;
+  bottom: 30px;
+  left: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 200;
+
+  @include media.desktop {
+    left: 30px;
+    bottom: 35px;
+  }
+
+  @include media.tablet {
+    bottom: 85px;
+    left: 25px;
+  }
+
+  @include media.mobile {
+    bottom: 80px;
+    left: 15px;
+  }
+
+}

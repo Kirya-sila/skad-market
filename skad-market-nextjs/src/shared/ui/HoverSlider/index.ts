@@ -1,0 +1,1 @@
+export { HoverSlider } from './HoverSlider'

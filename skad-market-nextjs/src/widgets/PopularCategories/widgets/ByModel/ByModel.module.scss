@@ -1,0 +1,48 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.list-wrapper {
+  flex-wrap: wrap;
+  height: 524px;
+  overflow: auto;
+  gap: clamp(5px, 5vw, 20px);
+
+  .list-item {
+    width: fit-content;
+    margin-top: 8px;
+  }
+
+  @include media.desktop {
+    margin-top: -10px;
+    margin-right: 20px;
+  }
+
+  @media (max-width: 830px) {
+    height: 604px;
+  }
+
+  @include media.tablet {
+    margin-top: 5px;
+    height: 800px;
+
+    .list-item {
+      font-size: 12px;
+
+      & > div:nth-child(2) {
+        gap: 4px;
+      }
+    }
+  }
+
+  @media (max-width: 520px) {
+    height: 1100px;
+  }
+
+  @media (max-width: 410px) {
+    height: 1500px;
+  }
+
+  @include media.mobile {
+    height: 1500px;
+  }
+}

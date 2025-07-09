@@ -1,0 +1,264 @@
+@import '@mixins/media.scss';
+@import '@mixins/mixins.scss';
+
+.search-car-modal {
+  &-header {
+    div[role='ModalBaseHeader_topBar'] {
+      font-size: 16px;
+
+      @include mobile {
+        margin-top: -2px;
+        font-size: 14px;
+      }
+    }
+
+    button[role='close-button'] {
+      margin-right: -5px;
+      transform: scale(0.9);
+
+      @include desktop {
+      }
+
+      @include tablet {
+        margin-right: -20px;
+      }
+    }
+  }
+
+  div[role='right-title'] {
+    @include mobile {
+      padding: 15px;
+    }
+  }
+
+  // div[role='modal-scroll-wrapper'] {
+  //   max-height: calc(100vh - 100px);
+  // }
+
+  div[role='modal-footer'] {
+    @include mobile {
+      height: 60px;
+      padding: 8px 15px 0 15px;
+    }
+  }
+}
+
+.search-car-modal-body {
+}
+
+.brands {
+  display: flex;
+  justify-content: center;
+  //gap: clamp(5px, 5vw, 36px);
+  margin-bottom: 30px;
+  padding-bottom: 6px;
+  flex-wrap: wrap;
+  overflow: hidden;
+
+  gap: 6px;
+
+  margin-top: 4px;
+  margin-left: -10px;
+
+  .brand-button {
+    height: 62px;
+    gap: 0;
+
+    & > div:first-child {
+      width: 100px;
+    }
+
+    & > div:nth-child(2) {
+      font-size: 14px !important;
+    }
+
+    &,
+    svg {
+      width: 60px;
+    }
+
+    svg {
+      height: 30px;
+    }
+  }
+
+  @include desktop {
+    margin-top: 5px;
+    margin-left: -3px;
+    gap: 25px;
+    margin-bottom: 20px;
+    .brand-button {
+      & > div:first-child {
+        width: 80px;
+        height: 30px;
+      }
+    }
+  }
+
+  @include tablet {
+    margin-bottom: 8px;
+    margin-top: 23px;
+    margin-left: 2px;
+    gap: 22px;
+    .brand-button {
+      & > div:first-child {
+        width: 60px;
+        height: 25px;
+      }
+    }
+  }
+
+  @media (max-width: 690px) {
+    flex-wrap: wrap;
+  }
+
+  @include mobile {
+    flex-wrap: wrap;
+    overflow: hidden;
+    max-height: 170px;
+    margin: 0 -20px 8px -10px;
+    .brand-button {
+      margin: 0 14px -8px 14px;
+
+      & > div:nth-child(2) {
+        font-size: 12px !important;
+      }
+    }
+    gap: 0;
+    margin-top: 2px;
+  }
+}
+
+.tab {
+}
+
+.tab-header {
+  display: flex;
+  gap: clamp(5px, 5vw, 38px);
+  margin-bottom: 24px;
+  overflow-y: auto;
+
+  @include desktop {
+    gap: clamp(5px, 4vw, 37.5px);
+  }
+
+  @include mobile {
+    gap: clamp(5px, 6vw, 20px);
+    margin-bottom: 12px;
+    margin-left: 5px;
+  }
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    height: 6px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--primary-light-gray);
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: var(--opacity-black-40);
+  }
+}
+
+.tab-body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 520px;
+  //justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include tabletToMobile {
+    // display: grid;
+    // grid-template-columns: 1fr 1fr;
+    // height: 100%;
+    gap: 10px;
+  }
+
+  @include mobile {
+    margin: 0 5px;
+    height: 100%;
+  }
+}
+
+.list-item {
+  width: clamp(80px, 10vw, 144px);
+  //width: 100px;
+  //
+  //button {
+  //  height: 100%;
+  //}
+  button {
+    text-align: left;
+    height: 100% !important;
+
+    &:focus {
+      height: 100%;
+    }
+  }
+
+  margin-bottom: 4px;
+}
+
+.list-item-generation {
+  min-width: clamp(80px, 10vw, 144px);
+}
+
+.list-wrapper {
+  display: flex;
+  gap: clamp(5px, 5vw, 24px);
+  width: 100%;
+  flex-wrap: wrap;
+
+  .list-item {
+    min-width: 144px;
+  }
+
+  @include desktop {
+    min-width: 164px;
+  }
+
+  @include mobile {
+    margin-left: 4px;
+    gap: clamp(5px, 5vw, 10px);
+  }
+}
+
+.car-brand {
+  display: flex;
+  gap: clamp(10px, 3vw, 40px);
+
+  button {
+    text-align: left;
+    line-height: 14px;
+    // white-space: normal;
+
+    // @include ellipsis;
+  }
+
+  @include mobile {
+    gap: clamp(5px, 7vw, 24px);
+  }
+}
+
+.col {
+  display: flex;
+  align-items: start;
+  flex-direction: column;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--primary-darkest-gray);
+  cursor: pointer;
+}
+
+.brand-content {
+  width: 100%;
+}
+
+.generation-button {
+  height: auto;
+  padding: 0;
+  white-space: wrap;
+}

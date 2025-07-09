@@ -1,0 +1,19 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.body {
+  //   max-width: 416px;
+  //   max-height: 635px;
+  @include media.tabletToMobile {
+    min-width: 100%;
+    height: 100%;
+  }
+}
+
+.confirm-delete {
+  max-width: 456px;
+  @include media.tabletToMobile {
+    min-width: 100%;
+    height: 100%;
+  }
+}

@@ -1,0 +1,33 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.copy-button {
+  cursor: pointer;
+  svg {
+    width: 29px;
+    height: 29px;
+    @include media.desktop {
+      width: 17px;
+      height: 17px;
+    }
+  }
+}
+
+.section-title {
+  @include mixins.h2;
+  @include media.tablet {
+    @include mixins.h3;
+  }
+  @include media.mobile {
+    @include mixins.h4;
+    line-height: 22px;
+  }
+}
+
+.comment {
+  @include mixins.comment;
+  width: 70%;
+  @include media.tablet {
+    width: 100%;
+  }
+}

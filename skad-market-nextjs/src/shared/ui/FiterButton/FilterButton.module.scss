@@ -1,0 +1,46 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.filter-button {
+  display: flex;
+  align-items: center;
+  padding: 14px 92px;
+  border: 1px solid var(--primary-dark-gray);
+  width: fit-content;
+  border-radius: 8px;
+  gap: 4px;
+  cursor: pointer;
+  height: fit-content;
+
+  &:active {
+    background-color: var(--secondary-light-gray-2);
+  }
+}
+
+.label {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--primary-black);
+}
+
+.icon {
+  position: relative;
+}
+
+.count {
+  @include mixins.centering;
+  top: -9px;
+  right: -10px;
+  position: absolute;
+  background-color: var(--primary-red);
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  font-size: 11px;
+  line-height: 24px;
+  color: var(--primary-white);
+}
+
+.small {
+  padding: 6px;
+}

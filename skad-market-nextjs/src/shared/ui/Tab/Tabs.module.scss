@@ -1,0 +1,40 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  justify-content: flex-start;
+  gap: 24px;
+}
+
+.tab {
+  @include mixins.h3;
+  cursor: pointer;
+  color: var(--primary-dark-gray);
+  white-space: nowrap;
+  &:focus {
+    border: 1px solid var(--primary-light-blue);
+  }
+
+  &:hover {
+    color: var(--primary-darkest-gray);
+  }
+
+  @include media.tablet {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  @include media.mobile {
+    font-size: 14px;
+    line-height: 18px;
+  }
+}
+
+.checked {
+  color: var(--primary-black);
+}
+
+.disabled {
+  pointer-events: none;
+  color: var(--primary-gray);
+}

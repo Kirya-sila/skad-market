@@ -1,0 +1,15 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--opacity-black-40);
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 10;
+
+  @include mixins.centering;
+}

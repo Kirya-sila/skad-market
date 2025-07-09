@@ -1,0 +1,81 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.holder {
+  // padding: 10px;
+
+  @include mixins.flexColumn;
+  align-items: flex-start;
+  gap: 5px;
+
+  > div:first-child {
+    font-size: 12px;
+    > div {
+      > span:last-child {
+        color: #656f72;
+      }
+    }
+  }
+
+  > div:last-child {
+    display: flex;
+    gap: 5px;
+  }
+
+  @include media.desktop {
+    flex-direction: row;
+    align-items: center
+  }
+
+  @include media.tablet {
+    @include mixins.flexColumn;
+    align-items: flex-start;
+  }
+}
+
+.color {
+  width: 40px;
+  height: 40px;
+
+  border-radius: 10px;
+
+  position: relative;
+
+  background: none;
+  border: none;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > .red-line-disabled {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -40%);
+  }
+
+  &:hover {
+    &:not(:disabled) {
+      border: 1px solid #136793;
+      cursor: pointer;
+    }
+  }
+}
+
+.color-selected {
+  border: 1px solid #136793;
+}
+
+.color-disabled {
+}
+
+.color-name {
+  color: #282f31;
+  font-weight: 600;
+}
+
+.color-value {
+  color: #656F72;
+}

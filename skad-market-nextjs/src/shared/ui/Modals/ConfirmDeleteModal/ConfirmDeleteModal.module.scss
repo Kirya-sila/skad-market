@@ -1,0 +1,30 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.text {
+  color: var(--primary-darkest-gray);
+  line-height: 26px;
+}
+
+.root {
+  border-radius: 20px;
+  z-index: 105;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @include media.desktop {
+    border-radius: 20px !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+    width: 100% !important;
+    height: auto !important;
+    position: absolute;
+    bottom: 0;
+    > div:first-child {
+      div {
+        display: block;
+      }
+    }
+  }
+}
