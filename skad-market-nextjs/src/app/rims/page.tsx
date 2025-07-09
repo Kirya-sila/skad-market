@@ -1,6 +1,4 @@
-'use client'
-
-import React, { useEffect } from 'react'
+import React from 'react'
 import { filterTrueKeys, useToggle, useWindowState } from '@/shared/libs'
 import { BreadcrumbsLine } from '@/shared/ui/Breadcrumbs/BreadcrumbsLine'
 import { FilterButton } from '@/shared/ui/FiterButton'
@@ -11,29 +9,26 @@ import { CatalogMetatags } from '@/original-pages/rims/catalog/ui/CatalogMetatag
 import { ProductCardsListContainerGrouped } from '@/original-pages/rims/catalog/ui/ProductCardsListContainerGrouped'
 import { SearchByCar } from '@/original-pages/rims/catalog/ui/SearchByCar'
 import { appRoutes } from '@/app-settings'
-import { rimsStore } from '@/entities/Rims/model/rimsStore'
 import { FilterBar } from '@/entities/Rims/ui/FilterBar'
-import searchCarStore from '@/features/SearchCar/model/searchCarStore'
-import { cartStore } from '@/features/cart'
 import { AllFilters } from '@/features/filters/ui'
 import { PopularCategories, RecommendedProductsSection, RimParamCompatibilityTabs } from '@/widgets'
 import { useRouter } from 'next/navigation'
+import { useRims } from '@/lib/queries'
 
-const Catalog = observer(({ className }: { className?: string }) => {
+const Catalog = observer(() => {
   const router = useRouter()
-  const { activeFilters, parameterCategories } = rimsStore
-  const { getTitle } = searchCarStore
-  const { resetAddedItemsToCart } = cartStore
+  const { data: rimsData, isLoading } = useRims()
   const { isDesktop, isLaptop, isTablet, isMobile } = useWindowState()
   const [isShowMobileFilters, , , showMobileFilters, hideMobileFilters] = useToggle(false)
-
-  useEffect(() => {
-    resetAddedItemsToCart()
-  }, [])
 
   const handleNavigate = (path: string) => () => {
     router.push(path)
   }
+
+  // Extract data from rimsData or use defaults
+  const activeFilters = rimsData?.activeFilters || []
+  const parameterCategories = rimsData?.parameterCategories || {}
+  const getTitle = () => rimsData?.title || 'Диски'
 
   return (
     <>
@@ -70,15 +65,12 @@ const Catalog = observer(({ className }: { className?: string }) => {
             </div>
           </div>
 
-          {/* <ProductCardsListContainer /> */}
           <ProductCardsListContainerGrouped />
-          {/* <RecommendedProducts className={css.recommended} /> */}
           <RecommendedProductsSection />
           <PopularCategories className={css.popular} />
         </div>
       </div>
 
-      {/* <Footer className={css.footer} /> */}
       {isShowMobileFilters && <CatalogMobileFilters onClose={hideMobileFilters} />}
     </>
   )

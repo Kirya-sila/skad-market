@@ -1,34 +1,57 @@
-import { useRouter } from 'next/navigation'
+import { useRouter, useSearchParams, useParams } from 'next/navigation'
+import { appRoutes } from '@/app-settings'
 
-// Hook to provide react-router-dom compatible navigation
-export const useNavigate = () => {
+// Next.js navigation hooks
+export const useNextNavigation = () => {
   const router = useRouter()
-  
-  return (path: string, options?: { replace?: boolean }) => {
-    if (options?.replace) {
-      router.replace(path)
-    } else {
-      router.push(path)
-    }
-  }
-}
+  const searchParams = useSearchParams()
+  const params = useParams()
 
-// Hook to get current location (simplified version)
-export const useLocation = () => {
-  // This is a simplified implementation
-  // In a real app, you might want to use window.location or a more sophisticated approach
   return {
-    pathname: typeof window !== 'undefined' ? window.location.pathname : '/',
-    search: typeof window !== 'undefined' ? window.location.search : '',
-    hash: typeof window !== 'undefined' ? window.location.hash : '',
+    navigate: (path: string) => router.push(path),
+    replace: (path: string) => router.replace(path),
+    back: () => router.back(),
+    forward: () => router.forward(),
+    refresh: () => router.refresh(),
+    searchParams,
+    params,
   }
 }
 
-// Utility function to generate paths with parameters
-export const generatePath = (path: string, params: Record<string, string | number>) => {
+// Generate path utility (similar to react-router-dom's generatePath)
+export const generatePath = (path: string, params: Record<string, string | number> = {}) => {
   let result = path
+  
   Object.entries(params).forEach(([key, value]) => {
-    result = result.replace(`[${key}]`, String(value))
+    result = result.replace(`:${key}`, String(value))
   })
+  
   return result
+}
+
+// Navigation helpers
+export const navigation = {
+  toHome: () => appRoutes.root,
+  toRims: () => appRoutes.rims,
+  toTyres: () => appRoutes.tyres,
+  toCart: () => appRoutes.cart,
+  toOrder: (id: string) => generatePath(appRoutes.order, { id }),
+  toBuyerCabinet: () => appRoutes.buyer.root,
+  toManager: () => appRoutes.manager.root,
+  toRimDetails: (wheelCode: string) => generatePath(appRoutes.rimsItem, { wheelCode }),
+}
+
+// Link component props type
+export interface LinkProps {
+  to: string
+  children: React.ReactNode
+  className?: string
+  onClick?: () => void
+  disabled?: boolean
+}
+
+// NavLink component props type
+export interface NavLinkProps extends LinkProps {
+  end?: boolean
+  caseSensitive?: boolean
 }

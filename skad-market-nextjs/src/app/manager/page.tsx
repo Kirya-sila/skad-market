@@ -1,18 +1,16 @@
 'use client'
 
 import React from 'react'
-import { Flex, Typography } from 'antd'
-import { ManagerPageWrapper } from '@/original-pages/Manager/ManagerPageWrapper/ManagerPageWrapper'
+import { observer } from 'mobx-react-lite'
+import { ManagerHomePage } from '@/original-pages/Manager/ManagerHomePage'
+import { useManagerOrders } from '@/lib/queries'
 
-const { Title } = Typography
+const ManagerPage = observer(() => {
+  const { data: ordersData, isLoading } = useManagerOrders()
 
-export default function ManagerPage() {
-  return (
-    <ManagerPageWrapper title="Manager Dashboard">
-      <Flex vertical gap={20}>
-        <Title level={3}>Manager Dashboard</Title>
-        <p>Manager functionality will be implemented here</p>
-      </Flex>
-    </ManagerPageWrapper>
-  )
-}
+  return <ManagerHomePage />
+})
+
+ManagerPage.displayName = 'ManagerPage'
+
+export default ManagerPage

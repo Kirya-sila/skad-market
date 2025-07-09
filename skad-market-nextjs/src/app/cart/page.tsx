@@ -1,27 +1,16 @@
-'use client'
-
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Flex } from 'antd'
-import { observer } from 'mobx-react-lite'
-// import { ScrollRestoration } from 'react-router-dom'
 import { Cart } from '@/original-pages/Cart/Cart'
 import { EmptyCart } from '@/original-pages/Cart/Rims/EmptyCart/EmptyCart'
-import { cartStore } from '@/features/cart'
 import { Spinner } from '@/shared/ui/Spinner'
 import { YouHaveSeenSection } from '@/widgets'
+import { useCart } from '@/lib/queries'
 
-const CartPage = observer(() => {
-  const { cartData, getCartItems, isCartDataLoading } = cartStore
-
-  useEffect(() => {
-    getCartItems()
-    return () => {
-      getCartItems()
-    } // to update cart with actual items
-  }, [getCartItems])
+const CartPage = () => {
+  const { data: cartData, isLoading } = useCart()
 
   const getCartContent = () => {
-    if (isCartDataLoading) {
+    if (isLoading) {
       return <Spinner />
     }
     if (!cartData || !cartData.length) {
@@ -32,13 +21,12 @@ const CartPage = observer(() => {
 
   return (
     <>
-      {/* <ScrollRestoration /> */}
       <Flex vertical gap={80} style={{ flexGrow: 1 }}>
         <Flex style={{ alignItems: 'center', flexGrow: 1 }}>{getCartContent()}</Flex>
         <YouHaveSeenSection />
       </Flex>
     </>
   )
-})
+}
 
 export default CartPage
