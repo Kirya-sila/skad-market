@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { Flex } from 'antd'
 import { observer } from 'mobx-react-lite'
-import { useLocation } from 'react-router-dom'
+// import { useLocation } from 'react-router-dom'
 import css from './Catalog.module.scss'
 import { ProductCardsListGrouped } from './ProductCardsListGrouped'
 import { LOAD_AMOUNT, rimsStore } from '@/entities/Rims/model/rimsStore'
@@ -12,6 +12,9 @@ import { handleToggleProductActions } from '@/shared/libs'
 import { DropdownButton, Pagination, RegularButton } from '@/shared/ui'
 import { getTotalPages } from '@/shared/ui/Pagination/utils'
 import { Spinner } from '@/shared/ui/Spinner'
+
+// Next.js stub for useLocation
+const useLocation = () => ({ state: {} as { fromDetails?: boolean } })
 
 export const ProductCardsListContainerGrouped = observer(() => {
   const location = useLocation()

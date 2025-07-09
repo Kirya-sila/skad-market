@@ -13,8 +13,8 @@ interface ISearchByCarProps {
 export const SearchByCar: FC<ISearchByCarProps> = observer(({ className, onClick }) => {
   const searchCarModal = useModal<SearchCarModalProps>(Modals.SearchCar)
   const { isCarSelected, currentCar, resetCurrentCar, activeBrand, activeModel } = searchCarStore
-  console.log("🚀 ~ constSearchByCar:FC<ISearchByCarProps>=observer ~ activeBrand:", activeBrand)
-  console.log("🚀 ~ constSearchByCar:FC<ISearchByCarProps>=observer ~ activeModel:", activeModel)
+  // console.log("🚀 ~ constSearchByCar:FC<ISearchByCarProps>=observer ~ activeBrand:", activeBrand)
+  // console.log("🚀 ~ constSearchByCar:FC<ISearchByCarProps>=observer ~ activeModel:", activeModel)
 
   const modalParams = useMemo(() => {
     if (currentCar) {
