@@ -1,0 +1,31 @@
+@use '@mixins/media';
+
+.promo-button {
+  color: var(--primary-white);
+  border-radius: 12px;
+  padding: 4px 10px;
+  line-height: 16px;
+  font-size: 12px;
+  cursor: default;
+  width: fit-content;
+  user-select: none;
+  font-weight: 500;
+
+  @include media.tablet {
+    line-height: 14px;
+  }
+
+  @include media.mobile {
+    line-height: 14px;
+    padding: 2px 8px;
+    font-size: 10px;
+  }
+}
+
+.primary {
+  background-color: var(--primary-orange);
+}
+
+.secondary {
+  background-color: var(--primary-black);
+}

@@ -1,0 +1,43 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  gap: 8px;
+}
+
+.title-container {
+  width: 100%;
+  gap: 0;
+}
+
+.address-container {
+  @include mixins.body;
+  font-weight: 600;
+  color: var(--primary-darkest-gray);
+  gap: 4px;
+  @include media.huge {
+    flex-direction: column-reverse;
+    gap: 0;
+  }
+}
+
+.address {
+  gap: 6px;
+}
+
+.question-mark {
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.delivery-cost {
+  color: var(--primary-orange);
+}
+
+.free-delivery {
+  color: var(--primary-green);
+}
+
+// .address {
+//   color: var(--primary-darkest-gray);
+// }

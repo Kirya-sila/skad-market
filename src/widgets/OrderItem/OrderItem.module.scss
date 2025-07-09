@@ -1,0 +1,60 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.item {
+  justify-content: space-between;
+}
+
+.items-container {
+  gap: 24px;
+  width: 100%;
+}
+
+.title {
+  @include mixins.bodyTitle;
+  justify-content: flex-start;
+  color: var(--primary-black);
+  cursor: pointer;
+  &:hover {
+    text-decoration: underline;
+  }
+  //   @include media.tablet {
+  //     font-size: 14px;
+  //     line-height: 22px;
+  //   }
+
+  //   @include media.mobile {
+  //     font-size: 12px;
+  //     line-height: 20px;
+  //   }
+}
+
+.image {
+  width: 50px;
+  height: 50px;
+  // @include media.mobile {
+  //   width: 60px;
+  // }
+}
+
+.characteristic {
+  @include mixins.bodyTitle;
+  color: var(--primary-darkest-gray);
+}
+
+.price {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--primary-black);
+}
+
+.image-with-content {
+  gap: 12px;
+  justify-content: flex-start;
+}
+
+.main-content {
+  gap: 0;
+  align-items: flex-start;
+}

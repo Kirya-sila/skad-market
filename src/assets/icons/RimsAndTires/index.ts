@@ -1,0 +1,8 @@
+export { ICSkad } from './ICSkad'
+export { ICIFree } from './ICIFree'
+export { ICKK } from './ICKK'
+export { ICOriginal } from './ICOriginal'
+export { ICPremiumSeries } from './ICPremiumSeries'
+export { ICUpWheels } from './ICUpWheels'
+export { ICRapid } from './ICRapid'
+export { ICPirelli } from './ICPirelli'

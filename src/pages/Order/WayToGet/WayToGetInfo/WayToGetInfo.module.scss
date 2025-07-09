@@ -1,0 +1,15 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.way-to-get-info {
+  width: 100%;
+  gap: 0
+}
+
+.delivery-point {
+  width: 100%;
+}
+
+.divider {
+  margin: 24px 0;
+}

@@ -1,0 +1,23 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.item {
+  justify-content: space-between;
+}
+
+.items-container {
+  gap: 24px;
+  width: 100%;
+}
+
+.characteristic {
+  @include mixins.bodyTitle;
+  color: var(--primary-darkest-gray);
+}
+
+.price {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: var(--primary-black);
+}

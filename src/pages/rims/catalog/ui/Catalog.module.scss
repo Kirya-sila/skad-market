@@ -1,0 +1,249 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.right-side {
+  width: 100%;
+
+  @media (min-width: 970px) {
+    padding-left: 24px;
+  }
+}
+
+.breadcrumbs {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.found {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.filters-header {
+  display: flex;
+  margin-bottom: 16px;
+
+  &-right-side {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+
+    .row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+
+      @include media.tabletToMobile {
+        > *:first-child {
+          width: 100%;
+        }
+        > *:last-child {
+          width: 50px;
+        }
+      }
+    }
+  }
+
+  .title {
+    font-size: 42px;
+    line-height: 48px;
+    color: var(--primary-black);
+
+    @include media.desktop {
+      font-size: 36px;
+      line-height: 42px;
+    }
+
+    @include media.tablet {
+      font-size: 28px;
+      line-height: 34px;
+    }
+
+    @include media.mobile {
+      font-size: 24px;
+      line-height: 30px;
+    }
+  }
+}
+
+div.filter-button {
+  display: none;
+
+  @include media.tablet {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include media.desktop {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media (max-width: 600px) {
+    > div:first-child {
+      display: none;
+    }
+  }
+}
+
+.filters {
+  .search-car-button {
+    // margin-right: 24px;
+    margin-bottom: 16px;
+
+    @include media.desktop {
+      margin-right: 20px;
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+
+    @include media.tablet {
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+}
+
+.body {
+  display: flex;
+
+  .filter-bar {
+  }
+}
+
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(244px, 1fr));
+  grid-template-rows: fit-content(100%);
+  align-items: center;
+  justify-items: center;
+
+  padding: 10px 0 40px 0;
+
+  // grid-gap: 16px;
+
+  .banner {
+    @media (max-width: 740px) {
+      grid-column: span 2;
+    }
+    @media (min-width: 740px) {
+      grid-column: span 3;
+    }
+    @media (min-width: 920px) {
+      grid-column: span 4;
+    }
+    @media (min-width: 1025px) {
+      grid-column: span 3;
+    }
+    @media (min-width: 1140px) {
+      grid-column: span 3;
+    }
+    @media (min-width: 1380px) {
+      grid-column: span 4;
+    }
+    // @media (min-width: 1670px) {
+    //   grid-column: span 5;
+    // }
+    // @media (min-width: 1940px) {
+    //   grid-column: span 6;
+    // }
+    // @media (min-width: 2200px) {
+    //   grid-column: span 7;
+    // }
+  }
+
+  @include media.desktop {
+    margin-top: 12px;
+
+    grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+    // grid-gap: clamp(5px, 2vw, 20px);
+  }
+
+  @include media.tablet {
+    padding: 0;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    & > .product-card {
+      display: flex;
+    }
+  }
+
+  @include media.tabletToMobile {
+    grid-template-columns: repeat(auto-fit, minmax(158px, 1fr));
+  }
+}
+
+.cards-fix-width {
+  grid-template-columns: repeat(auto-fit, minmax(244px, 244px));
+
+  @include media.tablet {
+    grid-template-columns: repeat(auto-fit, minmax(228px, 1fr));
+  }
+}
+
+.product-card {
+}
+
+.recommended {
+  margin-top: 80px;
+
+  & > div:nth-child(2) {
+    & > div:nth-child(n + 5) {
+      display: none;
+    }
+  }
+
+  @include media.desktop {
+    & > div:nth-child(n + 7) {
+      display: none;
+    }
+  }
+}
+
+.subline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort-method {
+  width: 235px;
+}
+
+.pagination-line {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+
+  .more {
+    padding: 20px 60px;
+  }
+
+  @include media.tabletToMobile {
+    width: 100%;
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items: center;
+
+    > button:last-child {
+      width: 100%;
+    }
+  }
+}
+
+.not-found {
+  margin-top: 20px;
+}
+
+.pagination {
+}

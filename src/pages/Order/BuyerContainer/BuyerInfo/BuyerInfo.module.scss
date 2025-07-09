@@ -1,0 +1,55 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  align-items: flex-start;
+}
+
+.additional-buyer {
+  @include mixins.h4;
+  margin-top: 16px;
+}
+
+.buyer-info {
+  width: 100%;
+  @include media.tablet {
+    align-items: flex-start;
+  }
+}
+
+.section-row {
+  margin-bottom: 8px;
+  align-items: flex-end;
+  justify-content: space-between;
+  @include media.mobile {
+    line-height: 22px;
+  }
+}
+
+.section-title {
+  @include mixins.h2;
+  @include media.tablet {
+    @include mixins.h3;
+  }
+  @include media.mobile {
+    @include mixins.h4;
+    line-height: 22px;
+  }
+}
+
+.legal-data-row {
+  gap: 4px;
+  @include mixins.body;
+  color: var(--primary-black);
+  > span:first-child {
+    font-weight: 600;
+  }
+}
+
+.comment {
+  @include mixins.comment;
+  width: 70%;
+  @include media.tablet {
+    width: 100%;
+  }
+}

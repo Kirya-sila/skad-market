@@ -1,0 +1,158 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.modal-header {
+  div[role=ModalBaseHeader_topBar] {
+
+    @include media.tablet {
+      font-size: 16px;
+    }
+
+    @include media.mobile {
+      font-size: 14px;
+    }
+  }
+
+  button[role=close-button] {
+    @include media.tablet {
+      // margin-right: -10px;
+      transform: scale(0.9);
+    }
+  }
+}
+
+.quick-search-rims-modal {
+  display: none;
+
+  @include media.tablet {
+    display: block;
+  }
+
+
+  //
+  //&-header {
+  //  div[role=ModalBaseHeader_topBar] {
+  //    font-size: 16px;
+  //
+  //    @include mobile {
+  //      margin-top: -2px;
+  //      font-size: 14px;
+  //    }
+  //  }
+  //
+  //  button[role=close-button] {
+  //    margin-right: -10px;
+  //    transform: scale(0.9);
+  //
+  //    @include desktop {
+  //    }
+  //
+  //    @include tablet {
+  //      margin-right: -20px;
+  //    }
+  //  }
+  //}
+  //
+  //div[role=right-title] {
+  //  @include mobile {
+  //    padding: 15px;
+  //  }
+  //}
+  //
+  //div[role=modal-scroll-wrapper] {
+  //  max-height: calc(100vh - 100px);
+  //}
+  //
+  //div[role=modal-footer] {
+  //  @include mobile {
+  //    height: 60px;
+  //    padding: 8px 15px 0 15px;
+  //  }
+  //}
+
+}
+
+.footer {
+  box-shadow: 0 4px 20px 0 #1B22252E;
+  position: absolute;
+  background-color: var(--primary-white);
+  left: 0;
+  padding: 20px;
+  margin-top: -20px;
+  width: 100%;
+
+  border-radius: 0 0 20px 20px;
+
+  @include media.tablet {
+    border-radius: 0;
+  }
+  @include media.mobile {
+    //margin: 0 -20px;
+  }
+}
+
+.title {
+  font-size: 14px;
+  line-height: 18px;
+  position: relative;
+  margin-right: 10px;
+  width: fit-content;
+  font-weight: 600;
+
+  svg {
+    position: absolute;
+    right: -18px;
+    top: 2px;
+  }
+}
+
+
+.filters-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .items {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+}
+
+.showAll {
+  .items {
+    flex-direction: column;
+    width: fit-content;
+  }
+}
+
+.body {
+  margin-top: 15px;
+
+  .filters {
+    //margin-top: 40px;
+  }
+
+  .params-radio-buttons {
+    margin-bottom: 24px;
+  }
+}
+
+.param-filters, .carFilters {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  .result {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 16px;
+  }
+}

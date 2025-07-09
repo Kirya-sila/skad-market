@@ -1,0 +1,1 @@
+export { ComparisonProductButton } from './ComparisonProductButton'

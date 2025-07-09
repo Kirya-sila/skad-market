@@ -1,0 +1,34 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.title-container {
+  gap: 0;
+  > span {
+    fontsize: 18;
+    line-height: '24px';
+    font-weight: 600;
+  }
+}
+
+.address-container {
+  @include mixins.body;
+  font-weight: 600;
+  color: var(--primary-darkest-gray);
+}
+
+.address {
+  gap: 6px;
+}
+
+.question-mark {
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.delivery-cost {
+  color: var(--primary-orange);
+}
+
+.free-delivery {
+  color: var(--primary-green);
+}

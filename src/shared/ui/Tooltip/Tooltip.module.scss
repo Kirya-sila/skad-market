@@ -1,0 +1,30 @@
+.tooltip {
+  &:not(#up) {
+    opacity: 1;
+    z-index: 10;
+    border-radius: 10px;
+    color: var(--primary-black);
+    box-shadow: 0 4px 20px 0 #1B22252E;
+    background-color: var(--primary-white);
+  }
+}
+
+:global {
+  .react-tooltip__place {
+    &-top-end {
+      .react-tooltip-arrow {
+        left: 12px !important;
+      }
+    }
+
+    &-top-start {
+      .react-tooltip-arrow {
+      }
+    }
+  }
+
+  .react-tooltip-arrow {
+    width: 24px !important;
+    height: 16px !important;
+  }
+}

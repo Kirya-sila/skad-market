@@ -1,0 +1,99 @@
+.sellerOrdersWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+.headerLine {
+  width: 100%;
+  display: flex;
+  // justify-content: space-between;
+  justify-content: flex-end;
+  color: var(--primary-darkest-gray);
+  margin-bottom: 8px;
+}
+.inputButtonWrapper {
+  background-color: var(--secondary-light-gray-2);
+  border-radius: 10px;
+  width: 200px;
+  height: 56px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  .inputButton {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    input {
+      height: 100%;
+      width: 100%;
+      border: none;
+      -webkit-appearance: none;
+      appearance: none;
+      outline: none;
+      background: none;
+    }
+    .littleText {
+      font-weight: 500;
+      font-size: 12px;
+    }
+    .hide {
+      position: absolute;
+      visibility: hidden;
+    }
+  }
+  .inputIcon {
+    display: flex;
+    align-items: center;
+    color: var(--primary-darkest-gray);
+    cursor: pointer;
+    padding-right: 8px;
+  }
+}
+.actionButtons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+}
+.dropdownWidth {
+  width: 140px;
+  right: 0;
+  // position: absolute;
+}
+
+.select {
+  width: 60px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  :global {
+    .ant-select-selector {
+      padding: 0 !important;
+      background-color: var(--primary-white) !important;
+      font-size: 16px;
+      align-items: center;
+      border: none;
+    }
+  }
+}
+.filterTabs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  p {
+    font-weight: 600;
+    color: var(--primary-darkest-gray);
+    cursor: pointer;
+    font-size: 14px;
+  }
+}
+
+.orderAction {
+  color: var(--primary-dark-blue);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}

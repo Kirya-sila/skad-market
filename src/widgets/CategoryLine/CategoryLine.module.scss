@@ -1,0 +1,22 @@
+.category-line {
+  display: flex;
+  gap: clamp(3px, 2vw, 24px);
+  justify-content: space-around;
+  //
+  //display: grid;
+  //
+  //grid-template-columns: repeat(3, 1fr);
+  div.category-button {
+
+    width: clamp(106px, 35vw, 424px);
+
+    @media (min-width: 768px) and (max-width: 800px) {
+      padding: 15px;
+    }
+
+    @media (min-width: 360px) and (max-width: 420px) {
+      padding: clamp(5px, 2vw, 10px);
+    }
+  }
+}
+

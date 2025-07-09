@@ -1,0 +1,148 @@
+@import '@mixins/media.scss';
+@import '@mixins/mixins.scss';
+
+.category-card {
+  background-color: var(--primary-lightest-gray);
+  display: flex;
+  align-items: center;
+  border: 4px solid transparent;
+  cursor: pointer;
+  outline: none;
+
+  .image {
+    @include centering;
+
+    img {
+      width: clamp(40px, 100%, 100px);
+      height: 100%;
+    }
+  }
+
+  &.main {
+    border-radius: 20px;
+    //padding: 10px 28px;
+    padding: 0.5rem 1.6em;
+    height: 120px;
+    width: 424px;
+    gap: 20px;
+
+    .image {
+      width: 100px;
+      height: 100px;
+    }
+
+    .label {
+      font-size: clamp(10px, 2vw, 24px);
+      font-weight: 600;
+      line-height: 30px;
+    }
+  }
+
+  &.cart {
+    border-radius: 10px;
+    padding: 8px 12px;
+    height: 60px;
+    width: 121px;
+    gap: 6px;
+
+    .image {
+      width: 44px;
+      height: 44px;
+    }
+
+    .label {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 20px;
+    }
+  }
+
+  &:focus {
+    border-color: var(--primary-light-blue);
+    background-color: var(--secondary-light-gray-2);
+  }
+
+  &:hover {
+    background-color: var(--secondary-light-gray-2);
+  }
+
+  &:active {
+    background-color: var(--secondary-light-gray-1);
+  }
+
+  @include desktop {
+    &.main {
+      width: 308px;
+      height: 92px;
+
+      .image {
+        width: 72px;
+        height: 72px;
+      }
+
+      //.label {
+      //  font-size: 20px;
+      //  line-height: 26px;
+      //}
+    }
+  }
+
+  @include tablet {
+    &.main {
+      flex-direction: column;
+      border-radius: 12px;
+      padding: 12px 16px;
+      height: 108px;
+      width: 228px;
+      gap: 8px;
+
+      .image {
+        width: 52px;
+        height: 52px;
+      }
+
+      //.label {
+      //  font-size: 18px;
+      //  line-height: 24px;
+      //}
+    }
+
+    &.cart {
+      width: 90px;
+      height: 36px;
+      gap: 4px;
+      padding: 6px 10px;
+      border-radius: 8px;
+
+      .image {
+        width: 20px;
+        height: 20px;
+      }
+
+      //.label {
+      //  font-size: 12px;
+      //}
+
+    }
+  }
+
+  @include mobile {
+    &.main {
+      border-radius: 12px;
+      width: 106px;
+      height: fit-content;
+      padding: 8px;
+      gap: 2px;
+
+      .image {
+        width: 36px;
+        height: 36px;
+      }
+
+      .label {
+        font-size: 10px;
+        line-height: 14px;
+      }
+    }
+  }
+}

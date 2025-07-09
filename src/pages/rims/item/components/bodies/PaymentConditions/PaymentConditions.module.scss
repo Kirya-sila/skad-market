@@ -1,0 +1,10 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.payment-conditions-container {
+  @include mixins.flexColumn;
+  margin-top: 10px;
+  align-items: flex-start;
+  width: 100%;
+  gap: 20px;
+}

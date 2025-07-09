@@ -1,0 +1,38 @@
+.holder {
+  display: flex;
+  gap: 2px;
+  justify-content: flex-start;
+  position: relative;
+  // width: 300px;
+  font-family: 'Hauora', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+
+  > div:first-child {
+    display: flex;
+    > button {
+      background: none;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
+  > div:last-child {
+    display: flex;
+    color: #656f72;
+    font-weight: 400;
+  }
+
+  .dots {
+    flex-grow: 1;
+    border-bottom: 2px dotted #DCDFE0;
+    height: 14px;
+  }
+
+  // .value {
+  //   display: flex;
+  // }
+}

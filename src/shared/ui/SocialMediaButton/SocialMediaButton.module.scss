@@ -1,0 +1,18 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.social-media-button {
+  @include mixins.centering;
+  cursor: pointer;
+
+  &:not(:hover) {
+
+    rect {
+      fill: var(--primary-lightest-gray);
+    }
+
+    path {
+      fill: var(--primary-black);
+    }
+  }
+}

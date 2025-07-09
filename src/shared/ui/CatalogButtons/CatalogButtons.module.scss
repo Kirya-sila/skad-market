@@ -1,0 +1,20 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.catalog-buttons {
+  > div {
+    background-color: var(--primary-lightest-gray);
+    border-radius: 20px;
+    padding: 8px 14px;
+
+    @include media.tablet {
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      img {
+        width: 24px;
+        height: auto !important;
+      }
+    }
+  }
+}

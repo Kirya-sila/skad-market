@@ -1,0 +1,5 @@
+export * from './ManagerHomePage'
+export * from './ManagerGoods'
+export * from './ManagerOrder'
+export * from './ManagerSettings'
+export * from './ManagerPageWrapper'

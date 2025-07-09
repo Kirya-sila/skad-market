@@ -1,0 +1,34 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.h2 {
+  @include mixins.h2;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.phone-number {
+  @include mixins.h4;
+}
+
+.number-conatiner {
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.info {
+  align-items: center;
+  > span {
+    @include mixins.bigBody;
+    color: var(--primary-gray);
+    text-align: center;
+  }
+}
+
+.hours {
+  @include mixins.bigBody;
+  color: var(--primary-black);
+}

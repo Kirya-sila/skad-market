@@ -1,0 +1,8 @@
+export { KIAIcon } from './KIAIcon'
+export { LADAIcon } from './LADAIcon'
+export { RenaultIcon } from './RenaultIcon'
+export { ToyotaIcon } from './ToyotaIcon'
+export { HavalIcon } from './HavalIcon'
+export { ChevroletIcon } from './ChevroletIcon'
+export { LexusIcon } from './LexusIcon'
+export { VolvoIcon } from './VolvoIcon'

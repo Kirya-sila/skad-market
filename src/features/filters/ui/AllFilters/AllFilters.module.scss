@@ -1,0 +1,16 @@
+.all-filters {
+  display: flex;
+  height: fit-content;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.reset-filters {
+  font-size: 14px;
+  line-height: 20px;
+  cursor: pointer;
+  color: var(--primary-darkest-gray);
+  white-space: nowrap;
+}

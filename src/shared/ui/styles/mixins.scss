@@ -1,0 +1,100 @@
+$primaryBlack: var(--primary-black);
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin centering {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin scrollbarSize($size) {
+  *::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+}
+
+@mixin badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-red);
+  height: 18px;
+  min-width: 18px;
+  padding: 4px;
+  font-size: 11px;
+  border-radius: 9px;
+  color: #ffffff;
+}
+
+@mixin modalLayout {
+  background-color: var(--primary-white);
+  z-index: 105;
+}
+
+@mixin h1 {
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 600;
+  color: $primaryBlack;
+}
+
+@mixin h2 {
+  font-size: 24px;
+  line-height: 30px;
+  font-weight: 600;
+  color: $primaryBlack;
+}
+
+@mixin h3 {
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: $primaryBlack;
+}
+
+@mixin h4 {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+  color: $primaryBlack;
+}
+
+@mixin bodyTitle {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+@mixin body {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+@mixin bigBody {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@mixin comment {
+  font-size: 12px;
+  line-height: 16px;
+  color: var(--primary-dark-gray);
+}
+
+@mixin smallComment {
+  font-size: 10px;
+  line-height: 14px;
+  color: var(--primary-dark-gray);
+}
+

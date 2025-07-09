@@ -1,0 +1,115 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.brand-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 180px;
+  min-width: fit-content;
+
+  cursor: pointer;
+
+  .icon {
+    @include mixins.centering;
+    width: 180px;
+    height: 64px;
+
+    svg {
+      //max-width: 150px;
+      max-width: 70%;
+      max-height: 80%;
+    }
+  }
+
+  &:hover {
+    .label {
+      color: var(--primary-light-blue);
+    }
+
+    .icon svg path {
+      fill: var(--primary-light-blue);
+
+    }
+  }
+
+  &:active {
+    .label {
+      color: var(--primary-dark-blue);
+    }
+
+    .icon svg path {
+      fill: var(--primary-dark-blue);
+    }
+  }
+
+  @include media.desktop {
+    gap: 5px;
+    width: 122px;
+
+    .icon {
+      max-width: 122px;
+    }
+  }
+
+  @include media.tablet {
+    gap: 0;
+    width: 104px;
+
+    .icon {
+      max-width: 104px;
+    }
+  }
+
+  @include media.mobile {
+    width: 98px;
+
+    .icon {
+      max-width: 98px;
+    }
+  }
+}
+
+.icon svg {
+  cursor: pointer;
+
+  //
+  //@include media.desktop {
+  //  max-width: 100px;
+  //  max-height: 25px;
+  //}
+  //
+  //@include media.tablet {
+  //  max-width: 87px;
+  //  max-height: 20px;
+  //}
+  //
+  //@include media.mobile {
+  //  max-width: 80px;
+  //}
+}
+
+.label {
+  color: var(--primary-black);
+  font-family: Hauora, serif;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  text-align: center;
+
+
+  @include media.desktop {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  @include media.tablet {
+    line-height: 20px;
+  }
+
+  @include media.mobile {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

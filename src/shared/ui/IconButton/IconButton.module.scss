@@ -1,0 +1,66 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.icon-button {
+  //border: 1px solid var(--secondary-light-gray-1);
+  border: none;
+  border-radius: 10px;
+  padding: 6px;
+  cursor: pointer;
+  background: transparent;
+  margin: 0.8px;
+  outline: none;
+  //height: 100%;
+
+  svg path {
+    fill: var(--primary-darkest-gray)
+  }
+
+
+  @include media.tablet {
+    border-radius: 8px;
+    // padding: 4px 8px;
+  }
+
+  &:not(.disabled) {
+    &:hover {
+      //background-color: var(--secondary-light-gray-2);
+
+      svg path {
+        fill: var(--primary-black)
+      }
+    }
+
+    &:active {
+      //background-color: var(--secondary-light-gray-1);
+    }
+
+    &:focus {
+      //margin: 0;
+      //border: 2px solid var(--primary-light-blue);
+    }
+  }
+
+}
+
+.wrapper {
+  @include mixins.centering;
+  //width: 24px;
+  //height: 24px;
+  //
+  //@include media.tablet {
+  //  width: 20px;
+  //  height: 20px;
+  //}
+  //
+  //@include media.mobile {
+  //  width: 16px;
+  //  height: 16px;
+  //}
+}
+
+.disabled {
+  border: transparent;
+  cursor: default;
+  opacity: .4;
+}

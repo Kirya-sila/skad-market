@@ -1,0 +1,65 @@
+@use '@mixins/media';
+@use '@mixins/mixins';
+
+.tab-link {
+  @include mixins.centering;
+  flex-direction: column;
+  // width: 144px;
+  height: 68px;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include media.mobile {
+    gap: 4px;
+    width: 68px;
+    height: 58px;
+  }
+}
+
+.tab-button-link {
+  @include mixins.centering;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+}
+
+.tab-button {
+  @extend .tab-button-link;
+  &:active {
+    .label {
+      color: var(--primary-dark-blue);
+    }
+
+    svg path {
+      fill: var(--primary-dark-blue);
+    }
+  }
+}
+
+.tab-button-active {
+  svg path {
+    fill: var(--primary-main-blue);
+  }
+
+  .label {
+    color: var(--primary-main-blue);
+  }
+}
+
+.label {
+  color: var(--primary-darkest-gray);
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 600;
+
+  @include media.mobile {
+    font-size: 12px;
+  }
+}
+
+.badge {
+  @include mixins.badge;
+  top: -8px;
+  left: 30px;
+}

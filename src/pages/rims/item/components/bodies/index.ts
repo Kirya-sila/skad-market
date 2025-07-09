@@ -1,0 +1,6 @@
+export * from './ImagesBody'
+export * from './ShortInfoBody'
+export * from './BuyBody'
+export * from './AllCharacteristicsBody'
+export * from './BankBody'
+export * from './ComprassionBody'

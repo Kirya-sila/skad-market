@@ -1,0 +1,147 @@
+const apiBasePath = import.meta.env.VITE_API_URL
+
+const routingBasePath = import.meta.env.VITE_APP_ROUTING_BASE_PATH
+
+export const appRoutes = {
+  root: `${routingBasePath}/`,
+  dev: `${routingBasePath}/dev`,
+  about: `${routingBasePath}/about`,
+  contacts: `${routingBasePath}/contacts`,
+  forSellers: `${routingBasePath}/for-sellers`,
+  userAgreement: `${routingBasePath}/user-agreement`,
+  policy: `${routingBasePath}/policy`,
+  personalInfoAgreement: `${routingBasePath}/personal-info-agreement`,
+  rims: `${routingBasePath}/rims`,
+  rimsItem: `${routingBasePath}/rims/:wheelCode`,
+  tyres: `${routingBasePath}/tyres`,
+  components: `${routingBasePath}/components`,
+  cart: `${routingBasePath}/cart`,
+  favorite: `${routingBasePath}/favorite`,
+  orders: `${routingBasePath}/orders`,
+  order: `${routingBasePath}/order/:id`,
+  appliedOrderInfo: `${routingBasePath}/order/order-complete/:id`,
+  resetPasswordRequestPage: `${routingBasePath}/manager/reset-password-request-page`,
+  resetPasswordRequestSentPage: `${routingBasePath}/manager/reset-password-request-sent-page`,
+  managerSignIn: `${routingBasePath}/manager/sign-in`,
+  buyerSignIn: `${routingBasePath}/sign-in`,
+  forgetPassword: `${routingBasePath}/manager/forget-password`,
+  manager: {
+    root: `${routingBasePath}/manager`,
+    goods: {
+      root: `${routingBasePath}/manager/goods`,
+    },
+    reports: {
+      root: `${routingBasePath}/manager/reports`,
+    },
+    orders: {
+      root: `${routingBasePath}/manager/orders`,
+      orderItem: `${routingBasePath}/manager/orders/:orderId`,
+    },
+    notifications: {
+      root: `${routingBasePath}/manager/notifications`,
+    },
+    settings: {
+      root: `${routingBasePath}/manager/settings`,
+      profile: `${routingBasePath}/manager/settings/profile`,
+      employees: `${routingBasePath}/manager/settings/employees`,
+      merchants: `${routingBasePath}/manager/settings/merchants`,
+      buyers: `${routingBasePath}/manager/settings/buyers`,
+      notifications: `${routingBasePath}/manager/settings/notifications`,
+    },
+  },
+  buyer: {
+    root: `${routingBasePath}/buyer`,
+    orders: {
+      root: `${routingBasePath}/buyer/orders`,
+      orderItem: `${routingBasePath}/buyer/orders/:orderId`,
+    }, 
+    profile: `${routingBasePath}/buyer/profile`,
+    favorites: `${routingBasePath}/buyer/favorites`,
+    comparisons: `${routingBasePath}/buyer/comparisons`,
+    notifications: `${routingBasePath}/buyer/notifications`,
+  },
+}
+
+export const apiRoutes = {
+  availableParams: `/rim-params/available-params`,
+
+  rimDetails: '/rims/rim-details',
+  getNewRims: '/rims/new-rim-assortment',
+  getNewRimsGrouped: '/rims/new-rim-assortment-grouped',
+  getSimilarRims: '/rims/similar-rim-assortment',
+  getSimilarRimsGrouped: '/rims/similar-rim-assortment-grouped',
+  getReccomendedItems: '/rims/recommended-rim-assortment',
+  getReccomendedItemsGrouped: '/rims/recommended-rim-assortment-grouped',
+  getRimPassport: '/rims/rim-passport',
+  getRimAssortmentFiltered: '/rims/rim-assortment-filtered',
+  getRimAssortmentFilteredGrouped: '/rims/rim-assortment-filtered-grouped',
+  getRimAssortmentSpecifiedCar: '/rims/rim-assortment-specified-car-filtered',
+  getRimAssortmentSpecifiedCarGrouped: '/rims/rim-assortment-specified-car-filtered-grouped',
+  gerRimAssortmentPage: '/rims/rim-assortment-page',
+  gerRimAssortmentPageGrouped: '/rims/rim-assortment-page-grouped',
+  getSpecifiedCarRimParams: '/rim-params/specified-car-rim-params',
+
+  getCartItems: `/cart/get-items`,
+  getCart: `/cart/get-cart`,
+  addToCartItem: `/cart/add-item`,
+  deleteCartItems: `/cart/delete-items`,
+  restoreCartItem: `/cart/restore-cartItem`,
+  cleanCart: `/cart/clean`,
+  updateCartItem: `/cart/update-item`,
+
+  initSmsVerification: `/auth/init-sms-verification`,
+  smsCodeVerification: `/auth/sms-code-verify`,
+  loginBuyer: `/auth/login/buyer`,
+  refreshToken: `/auth/refresh`,
+
+  initOrder: `/order/init-order`,
+  commitOrder: `/order/commit-order`,
+  getOrder: `/order/get-order`,
+  deleteOrderItem: '/order/delete-order-item',
+  getDeliveryPointsByQuery: `/order/get-available-parcel-shops-for-order-by-query`,
+  getAddresses: `/order/get-addresses`,
+  getOrderContacts: `/order/get-order-contacts`,
+  saveOrderContacts: `/order/save-order-contacts`,
+  addDeliveryPointAddress: `/order/add-user-delivery-parcel-shop`,
+  addUserDeliveryAddress: `/order/add-user-delivery-address`,
+  getAllDeliveryAddresses: `/order/get-user-delivery-addresses-and-parcel-shops`,
+  setDeliveryPointToOrderItems: `/order/set-delivery-point-to-order-items`,
+  deleteDeliveryOrderItem: `/order/delete-user-delivery-address-or-parcel-shop`,
+
+  getCarModels: '/car-selection/car-models',
+  brandByCountries: '/car-selection/brands-countries',
+  modelsByBrand: '/car-selection/brands-models',
+  carGenerations: '/car-selection/model-generations',
+  rimCompatibleCars: '/car-selection/rim-compatible-cars',
+
+  managerSignIn: '/management/auth/login',
+  requestPasswordReset: '/management/auth/init-reset-password',
+  sellerPasswordReset: '/management/auth/reset-password',
+
+  settingsEmployees: '/management/users/list-management-users',
+  updateEmployee: '/management/users/update',
+  createEmployee: '/management/users/create',
+  orderItemManagersList: '/management/users/list-managers-short',
+
+  setManagerToOrder: '/management/order/set-manager',
+  getManagersOrder: '/management/order/get-order',
+  sellerOrders: '/management/order/get-orders',
+  sellerOrderFilters: '/management/order/get-filter-params',
+  getOrderChangesHistory: '/management/order/get-order-change-history',
+  cancelOrder: '/management/order/cancel-order',
+  sendOrder: '/management/order/send-order-to-delivery',
+  setPlanningShipmentDate: '/management/order/set-planning-shipment-date',
+  getOrderFormFile: '/management/order/print-order-form',
+
+  client: {
+    menuItemsCount: '/client/counter',
+    profile: '/client/profile',
+    notifications: '/client/notifications',
+    orders: {
+      root: '/client/orders',
+      orderItem: '/client/order',
+    },
+    favorites: '/client/favorites',
+    comparisons: '/client/comparisons',
+  },
+}

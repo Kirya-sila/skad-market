@@ -1,0 +1,39 @@
+.rim-selection-by-params {
+  display: flex;
+  gap: 4px;
+
+  --rc-select-width: 1000px;
+}
+
+.checkboxes {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  margin-top: 8px;
+
+  &-title {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    white-space: nowrap;
+  }
+
+  &-body {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+
+.diameter {
+}
+
+.offset {
+}
+
+.fastener {
+}
+
+.width {
+}

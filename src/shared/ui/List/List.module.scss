@@ -1,0 +1,14 @@
+.list {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--primary-darkest-gray);
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.letter {
+  color: var(--primary-main-blue);
+  margin-bottom: 8px;
+}

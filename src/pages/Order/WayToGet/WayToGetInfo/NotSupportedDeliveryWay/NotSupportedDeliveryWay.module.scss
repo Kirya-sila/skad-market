@@ -1,0 +1,20 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.container {
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.info {
+  gap: 0;
+  > span:first-child {
+    @include mixins.body;
+    font-weight: 600;
+    color: var(--primary-orange);
+  }
+  > span:last-child {
+    @include mixins.bodyTitle;
+    color: var(--primary-dark-gray);
+  }
+}

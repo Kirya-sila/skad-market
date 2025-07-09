@@ -1,0 +1,144 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.color-filter {
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+
+  &.labeled {
+    padding: 1px;
+    //@include mixins.centering;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &.active {
+    position: relative;
+
+    & .label {
+      color: var(--primary-black);
+    }
+
+    .thumbnail {
+      border: 2px solid var(--primary-light-blue);
+      transform: scale(1.07);
+
+      @include media.tablet {
+        transform: scale(1.18);
+      }
+    }
+  }
+
+  &.not-available {
+    & {
+      pointer-events: none;
+      cursor: default;
+    }
+
+    &.active:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: red;
+      bottom: 50%;
+      right: 0;
+      width: 100%;
+      height: 2px;
+      transform: rotate(-30deg);
+      opacity: 0.8;
+    }
+  }
+
+  &:disabled {
+    .thumbnail {
+      border: none;
+      opacity: 0.7;
+    }
+
+    .label {
+      color: var(--primary-gray);
+    }
+  }
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:active {
+      .thumbnail {
+        transform: scale(1.07);
+        border: 2px solid var(--primary-light-blue);
+
+        @include media.tablet {
+          transform: scale(1.18);
+        }
+      }
+
+      .label {
+        color: var(--primary-black);
+      }
+    }
+  }
+}
+
+.label {
+  font-family: 'Hauora', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--primary-darkest-gray);
+}
+
+.thumbnail {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  border: 1px solid var(--primary-light-gray);
+
+  @include media.tablet {
+    width: 20px;
+    height: 20px;
+  }
+
+  @include media.mobile {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.diamond-white {
+  // Diamond white
+  background: linear-gradient(135deg, #eceff1 11.98%, #ffffff 52.6%, #eceff1 89.06%);
+}
+
+.diamond-matte {
+  // Diamond matte
+  background: linear-gradient(119.36deg, #ccd1d5 11.98%, #fafdff 52.6%, #ccd1d4 90.1%);
+}
+
+.diamond-black {
+  // Diamond black
+  background: linear-gradient(119.36deg, #191a1b 12.5%, #696d70 52.6%, #191a1b 88.54%);
+}
+
+.silver {
+  // Silver
+  background: linear-gradient(119.68deg, #e8ebed 7.56%, #f9fdff 86.07%);
+}
+
+.diamond-silver {
+  // Dark silver
+  background: linear-gradient(118.48deg, #bfc4c7 12.95%, #fafafa 85.47%);
+}
+
+.black {
+  //Black
+  background: linear-gradient(119.36deg, #191a1b 12.5%, #191a1b 52.6%, #191a1b 88.54%);
+}
+
+.white {
+  //Black
+  background: #ffffff;
+}

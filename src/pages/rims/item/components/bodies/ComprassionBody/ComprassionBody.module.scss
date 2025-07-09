@@ -1,0 +1,21 @@
+.holder {
+  // margin-top: 60px;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+
+  > div:first-child {
+    font-size: 32px;
+    font-weight: 600;
+  }
+
+  > div:last-child {
+    font-size: 16px;
+    color: #136793;
+    font-weight: 600;
+    // cursor: pointer;
+  }
+}

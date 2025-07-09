@@ -1,0 +1,58 @@
+.green {
+  color: #28AD25;
+}
+.orange {
+  color: var(--primary-orange);
+}
+.gray {
+  color: var(--primary-dark-gray);
+}
+.black {
+  color: var(--primary-black);
+}
+
+.ant-table-content {
+  scrollbar-color: unset;
+  /* Стили для полосы прокрутки */
+  ::-webkit-scrollbar {
+    width: 4px; /* Ширина скролла */
+    height: 4px; /* Высота для горизонтvального скролла */
+  }
+
+  /* Трек (фон скролла) */
+  ::-webkit-scrollbar-track {
+    background: transparent; /* Прозрачный фон */
+    border-radius: 4px 0px 0px 0px;
+  }
+
+  /* Ползунок скролла */
+  ::-webkit-scrollbar-thumb {
+    background: #dcdfe0; /* Цвет ползунка */
+    border-radius: 4px 0px 0px 0px;
+  }
+
+  /* При наведении */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #bfc3c4; /* Чуть темнее при наведении */
+  }
+}
+
+.antdTable {
+  :global(.ant-table-tbody .ant-table-row-selected >.ant-table-cell) {
+    background: #fafafa !important;
+  }
+}
+.antdTable {
+  :global(.ant-table) {
+    scrollbar-width: thin;
+    scrollbar-color: unset !important;
+  }
+}
+.dropdownItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  width: 320px;
+}
+

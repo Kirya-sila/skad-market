@@ -1,0 +1,25 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.title {
+  font-size: 14px;
+  line-height: 18px;
+  position: relative;
+  margin-right: 10px;
+  width: fit-content;
+  font-weight: 600;
+
+  svg {
+    position: absolute;
+    right: -18px;
+    top: 2px;
+  }
+}
+
+.choose-mobile-catalog-modal {
+  display: none;
+
+  @include media.tablet {
+    display: block;
+  }
+}

@@ -1,0 +1,16 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.flex {
+  display: flex;
+}
+
+.flex-row {
+  @include mixins.centering;
+  gap: 8px;
+}
+
+.flex-column {
+  @include mixins.flexColumn;
+  gap: 8px;
+}

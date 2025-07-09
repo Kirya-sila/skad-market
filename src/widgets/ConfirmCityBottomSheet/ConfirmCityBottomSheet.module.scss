@@ -1,0 +1,43 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.confirm-city-bottom-sheet {
+
+  &[role=presentation] {
+    opacity: 0;
+    pointer-events: none;
+
+    @include media.tablet {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+.content {
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  font-size: 14px;
+  line-height: 18px;
+  color: var(--primary-black);
+
+  .city-name {
+    font-weight: 600;
+  }
+}
+
+.title {
+
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+
+  button {
+    width: 100%;
+  }
+}

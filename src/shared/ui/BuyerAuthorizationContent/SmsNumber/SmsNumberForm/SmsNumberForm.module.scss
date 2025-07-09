@@ -1,0 +1,27 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.number {
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  input {
+    width: 56px;
+    height: 56px;
+    text-align: center;
+    font-size: 32px;
+  }
+  > div {
+    max-width: max-content;
+  }
+}
+
+.errorMessage {
+  justify-content: center;
+  gap: 0;
+  margin-bottom: 24px;
+  span {
+    @include mixins.bodyTitle;
+    color: var(--primary-red);
+  }
+}

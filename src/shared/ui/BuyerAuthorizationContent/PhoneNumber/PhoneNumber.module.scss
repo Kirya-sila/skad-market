@@ -1,0 +1,31 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.h2 {
+  @include mixins.h2;
+  margin-bottom: 16px;
+  text-align: center;
+  @include media.tabletToMobile {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 600;
+  }
+}
+
+.info {
+  font-size: 18px;
+  line-height: 28px;
+  color: var(--primary-darkest-gray);
+  margin-bottom: 24px;
+  text-align: center;
+  @include media.tablet {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.comment {
+  @include mixins.smallComment;
+  margin-top: 10px;
+  text-align: center;
+}

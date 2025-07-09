@@ -1,0 +1,73 @@
+.circle {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  color: var(--interact-action);
+  border: 2px solid rgba(255, 255, 255, 0.7);
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  transform: translate(-50%, -50%);
+}
+
+.circleContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 90%;
+  height: 90%;
+
+  border-radius: 50%;
+  background-color: var(--primary-dark-red);
+
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.circleText {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 20px;
+  color: #fff;
+}
+
+.markerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.marker:hover {
+  cursor: pointer;
+}
+
+.markerText {
+  color: #050d33;
+  font-weight: 500;
+  font-size: 14px;
+  top: -27px;
+  position: absolute;
+  background-color: #ffffff;
+  border-radius: 8px;
+  transition: all 0.3s ease-out;
+}
+
+.markerText.visible {
+  opacity: 1;
+  padding: 4px 8px;
+  transform: translateY(0);
+}
+
+.markerText.hidden {
+  opacity: 0;
+  padding: 4px 0;
+  transform: translateY(4px);
+}

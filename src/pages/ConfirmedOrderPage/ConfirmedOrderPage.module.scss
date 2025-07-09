@@ -1,0 +1,89 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.root {
+  height: calc(100% - 100px);
+  justify-content: space-between;
+  padding-top: 70px;
+  align-items: flex-start;
+}
+
+.main-content {
+  align-items: flex-start;
+  gap: 24px;
+  height: 100%;
+}
+
+.content-body {
+  justify-content: space-between;
+  align-items: flex-start;
+  @include media.desktop {
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+
+.title {
+  font-size: 42px;
+  line-height: 48px;
+  font-weight: 600;
+  color: var(--primary-black);
+  @include media.desktop {
+    @include mixins.h1;
+  }
+}
+
+.main-text-container {
+  gap: 0;
+  align-items: flex-start;
+  flex-basis: 60%;
+}
+
+.thank-you-text {
+  @include mixins.h3;
+  justify-content: flex-start;
+  font-weight: 400;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  > span {
+    font-weight: 600;
+  }
+  @include media.desktop {
+    @include mixins.bigBody;
+  }
+}
+
+.bold-main-text {
+  @include mixins.h3;
+  font-weight: 600;
+  line-height: 28px;
+  margin-bottom: 60px;
+  @include media.desktop {
+    margin-bottom: 36px;
+  }
+}
+
+.recomendation-text {
+  @include mixins.h3;
+  font-weight: 400;
+  margin-bottom: 36px;
+  @include media.desktop {
+    margin-bottom: 24px;
+  }
+}
+
+.catalog-buttons {
+  @include media.tablet {
+    > div {
+      margin-bottom: 24px;
+      padding: 6px 10px;
+    }
+  }
+}
+
+.payment-reminder {
+  @include mixins.h3;
+  font-weight: 400;
+  margin-bottom: 16px;
+}

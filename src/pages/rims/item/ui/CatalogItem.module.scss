@@ -1,0 +1,97 @@
+@use '@mixins/mixins';
+@use '@mixins/media';
+
+.back-label {
+  margin: 20px 0px 20px;
+
+  @include media.tablet {
+    margin-top: unset;
+  }
+}
+
+.title {
+  font-size: 36px;
+  font-weight: 600;
+  line-height: 42px;
+  margin-bottom: 10px;
+
+  @include media.tablet {
+    font-size: 28px;
+    line-height: 34px;
+  }
+
+  @include media.mobile {
+    font-size: 24px;
+    line-height: 30px;
+  }
+}
+
+.vendor {
+  display: flex;
+  gap: 5px;
+
+  margin-bottom: 30px;
+
+  > span:first-child {
+    color: #282f31;
+    font-weight: 600;
+  }
+
+  > span:last-child {
+    color: #909799;
+  }
+
+  @include media.tablet {
+    font-size: 12px;
+  }
+}
+
+.body {
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 20px;
+  @include media.desktop {
+    align-items: flex-start;
+  }
+}
+
+.body-small {
+  @include mixins.flexColumn;
+  align-items: center;
+}
+
+.also-buy {
+  margin-top: 40px;
+}
+
+.seen, .may-like {
+  margin-top: 60px;
+}
+
+.image-body {
+  width: 40%;
+  min-width: 320px;
+  @include media.desktop {
+    max-width: 400px;
+  }
+}
+.image-body-small {
+  width: 100%;
+  max-width: 280px;
+  min-width: auto;
+}
+
+.details {
+  @include mixins.flexColumn;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.buy-body-container {
+  @include mixins.flexColumn;
+  justify-content: space-between;
+  gap: 10px;
+}

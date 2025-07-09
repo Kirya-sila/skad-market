@@ -1,0 +1,35 @@
+@use "@mixins/mixins";
+@use "@mixins/media";
+
+.filter-tab {
+  background-color: var(--primary-lightest-gray);
+  border-radius: 8px;
+  padding: 8px 12px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.name {
+  color: var(--primary-black);
+}
+
+.value {
+  color: var(--primary-darkest-gray);
+
+}
+
+.icon {
+  @include mixins.centering;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--primary-white);
+  }
+}
