@@ -3,16 +3,13 @@
   "private": true,
   "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "build:development": "npm run-script build",
-    "build:staging": "env-cmd -f .env.staging npm run-script build",
-    "build:production": "env-cmd -f .env.production npm run-script build",
-    "lint": "eslint src --ext .js,.jsx,.ts,.tsx",
-    "lint:fix": "eslint src --ext .js,.jsx,.ts,.tsx --fix",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
     "format": "prettier \"src/**/*.{js,jsx,ts,tsx,css,scss}\" --write",
-    "compile": "tsc",
-    "preview": "vite preview"
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "antd": "5.21.6",
@@ -20,12 +17,12 @@
     "mobx": "6.12.0",
     "mobx-react-lite": "4.0.5",
     "mobx-utils": "6.0.4",
+    "next": "14.2.5",
     "rc-select": "14.11.0",
     "rc-virtual-list": "3.11.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-helmet": "6.0.0-beta",
-    "react-router-dom": "6.21.3",
     "react-slick": "0.30.2",
     "react-toastify": "9.1.3",
     "react-tooltip": "5.18.1",
@@ -43,6 +40,7 @@
     "@babel/types": "7.23.6",
     "@humanwhocodes/config-array": "0.11.13",
     "@humanwhocodes/object-schema": "2.0.1",
+    "@next/eslint-config-next": "^14.2.5",
     "@types/node": "20.11.7",
     "@types/prettier": "2.7.3",
     "@types/react": "18.3.10",
@@ -53,7 +51,6 @@
     "@types/styled-components": "5.1.23",
     "@typescript-eslint/eslint-plugin": "7.2.0",
     "@typescript-eslint/parser": "7.2.0",
-    "@vitejs/plugin-react": "4.2.1",
     "@yandex/smart-captcha": "2.7.1",
     "@yandex/ymaps3-types": "0.0.28",
     "ast-types-flow": "0.0.7",
@@ -64,6 +61,7 @@
     "electron-to-chromium": "1.4.640",
     "env-cmd": "10.1.0",
     "esbuild": "0.19.10",
+    "eslint": "8.57.0",
     "eslint-config-prettier": "9.1.0",
     "eslint-plugin-import": "2.29.1",
     "eslint-plugin-prettier": "5.0.1",
@@ -82,7 +80,6 @@
     "sass": "1.69.5",
     "styled-components": "5.3.3",
     "tsconfig-paths": "3.14.2",
-    "typescript": "5.3.3",
-    "vite": "5.0.8"
+    "typescript": "5.3.3"
   }
 }

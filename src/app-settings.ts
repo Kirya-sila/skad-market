@@ -1,6 +1,6 @@
-const apiBasePath = import.meta.env.VITE_API_URL
+const apiBasePath = process.env.NEXT_PUBLIC_API_URL || ''
 
-const routingBasePath = import.meta.env.VITE_APP_ROUTING_BASE_PATH
+const routingBasePath = process.env.NEXT_PUBLIC_APP_ROUTING_BASE_PATH || ''
 
 export const appRoutes = {
   root: `${routingBasePath}/`,

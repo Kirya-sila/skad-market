@@ -6,7 +6,6 @@ import { MetaTag, SearchCarModalProps } from '@shared/ui'
 import { RegularButton } from '@shared/ui/RegularButton'
 import { Flex } from 'antd'
 import { observer } from 'mobx-react-lite'
-import { ScrollRestoration } from 'react-router-dom'
 import css from './MainPage.module.scss'
 import searchCarStore from '@/features/SearchCar/model/searchCarStore'
 import { Brands, NewOnSkadSection, PopularCategories, RecommendedProductsSection } from '@/widgets'
@@ -57,7 +56,6 @@ export const MainPage = observer(() => {
 
   return (
     <>
-      <ScrollRestoration />
       <MetaTag
         title='Skadmarket - интернет-магазин шин и дисков с доставкой'
         label='Интернет-магазин шин и дисков Skadmarket'

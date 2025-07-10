@@ -1,6 +1,5 @@
 import { useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
-import { useParams } from 'react-router-dom'
 import { BuyerContainer } from './BuyerContainer'
 import css from './Order.module.scss'
 import { OrderLayout } from './OrderLayout/OrderLayout'
@@ -13,18 +12,21 @@ import { orderStore } from '@/features/order/model/orderStore'
 import { ButtonBack, Flex, FlexColumn } from '@/shared/ui'
 import { Spinner } from '@/shared/ui/Spinner'
 
-export const Order = observer(() => {
-  const { id } = useParams()
+interface OrderProps {
+  orderId: string
+}
+
+export const Order = observer(({ orderId }: OrderProps) => {
   const { isLoading, getOrder, setLoadingStatus, getBuyerInfo, isBuyerInfoLoading } = orderStore
   const { handleOpenAuthorizationModal } = authorizationStore
 
   useEffect(() => {
     setLoadingStatus(false)
     handleOpenAuthorizationModal(false)
-    getOrder(id ?? '')
-    getBuyerInfo(id ?? '')
+    getOrder(orderId)
+    getBuyerInfo(orderId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id])
+  }, [orderId])
 
   return (
     <OrderLayout>

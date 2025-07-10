@@ -1,4 +1,5 @@
-import React, { CSSProperties, SyntheticEvent, useCallback } from 'react'
+import React, { CSSProperties } from 'react'
+import Image from 'next/image'
 import fallbackImageSrc from '@assets/images/NoPhoto.png'
 
 interface ImageLoaderProps {
@@ -7,6 +8,9 @@ interface ImageLoaderProps {
   placeholder?: string
   className?: string
   style?: CSSProperties
+  width?: number
+  height?: number
+  fill?: boolean
 }
 
 /**
@@ -31,59 +35,38 @@ export const ImageLoader: React.FC<ImageLoaderProps> = ({
   placeholder = fallbackImageSrc,
   className,
   style = {},
+  width,
+  height,
+  fill = false,
 }: ImageLoaderProps): React.ReactElement => {
-  // const [loaded, setLoaded] = useState(false)
-  // const [error, setError] = useState(false)
-  // const imgRef = useRef<HTMLImageElement>(null)
-
-  // useEffect(() => {
-  //   if (imageCache.has(src)) {
-  //     setLoaded(true)
-  //     return
-  //   }
-  //
-  //   const observer = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting && imgRef.current) {
-  //         const img = new Image()
-  //         img.src = src
-  //         img.onload = () => {
-  //           setLoaded(true)
-  //           imageCache.add(src)
-  //         }
-  //         img.onerror = () => {
-  //           setError(true)
-  //         }
-  //       }
-  //     })
-  //   })
-  //
-  //   if (imgRef.current) {
-  //     observer.observe(imgRef.current)
-  //   }
-  //
-  //   return () => {
-  //     observer.disconnect()
-  //   }
-  // }, [src])
-
-  const handleError = useCallback(() => {
-    return ({ currentTarget }: SyntheticEvent<HTMLImageElement>) => {
-      currentTarget.onerror = null
-      currentTarget.src = fallbackImageSrc
-    }
-  }, [])
+  if (fill) {
+    return (
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className={className}
+        style={style}
+        onError={() => {
+          // Fallback to placeholder image
+          return fallbackImageSrc
+        }}
+      />
+    )
+  }
 
   return (
-    <img
-      loading='lazy'
-      // ref={imgRef}
-      // src={error ? placeholder : src}
+    <Image
       src={src}
       alt={alt}
+      width={width || 300}
+      height={height || 200}
       className={className}
-      onError={handleError}
       style={style}
+      onError={() => {
+        // Fallback to placeholder image
+        return fallbackImageSrc
+      }}
     />
   )
 }
