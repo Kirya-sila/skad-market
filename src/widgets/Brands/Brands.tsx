@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import {
   ICArrowRightLine,
@@ -11,11 +13,10 @@ import { Logo } from '@shared/ui/Logo'
 import { Flex } from 'antd'
 import cn from 'classnames'
 import { observer } from 'mobx-react-lite'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import css from './Brands.module.scss'
 import { appRoutes } from '@/app-settings'
 import { rimsStore } from '@/entities/Rims'
-import { useNavigateWithScrollUp } from '@/shared/libs'
 
 interface BrandsProps {
   className?: string
@@ -53,14 +54,14 @@ const brands = [
 ]
 
 export const Brands = observer(({ className }: BrandsProps) => {
-  const navigate = useNavigateWithScrollUp()
+  const router = useRouter()
   const [openAllBrands, setOpenAllBrands] = useState(false)
 
   const { getRimsByRimBrand } = rimsStore
 
   const handleBrandClick = async (name: string) => {
     getRimsByRimBrand('brands', name)
-    navigate(appRoutes.rims)
+    router.push(appRoutes.rims)
   }
 
   const handleAllBrands = () => {

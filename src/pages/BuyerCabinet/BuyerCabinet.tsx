@@ -1,6 +1,7 @@
+'use client'
+
 import { Col, Flex, Row, Typography } from 'antd'
 import { observer } from 'mobx-react-lite'
-import { Outlet } from 'react-router-dom'
 import { SideMenu } from './SideMenu'
 import { buyerCabinetStore } from '@/features/buyer'
 import { MainLayout } from '@/layouts'
@@ -33,7 +34,7 @@ export const BuyerCabinet = observer(() => {
             </Col>
           )}
           <Col span={width > 1023 ? 20 : 24}>
-            <Outlet />
+            {/* Content will be rendered by Next.js routing */}
           </Col>
         </Row>
         {/* </Flex> */}

@@ -1,3 +1,5 @@
+'use client'
+
 import { FC, MouseEventHandler, SyntheticEvent } from 'react'
 import { CartIcon, ICMinus, ICPlus } from '@assets/icons'
 import { RegularButton } from '@shared/ui'
@@ -8,7 +10,7 @@ import { withPreventDefaultEvents } from '@/shared/libs/utils/dom'
 import { observer } from 'mobx-react-lite'
 import { cartStore } from '@/features/cart'
 import { appRoutes } from '@/app-settings'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { primaryGreen } from '@/theme'
 import { useWindowState } from '@/shared/libs'
 
@@ -22,7 +24,7 @@ interface BottomActionProps {
 
 export const BottomAction = observer(
   ({ productId, className, totalQuantity, addItemToCart, text = 'В корзину' }: BottomActionProps) => {
-    const navigate = useNavigate()
+    const router = useRouter()
     const { isMobile } = useWindowState()
     const { addedToCartItems } = cartStore
 
@@ -48,13 +50,13 @@ export const BottomAction = observer(
 
       if (addedToCartItems.includes(productId)) {
         return (
-          <RegularButton
-            onClick={withPreventDefaultEvents(() => navigate(appRoutes.cart))}
-            // leftIcon={<CartIcon />}
-            text='Перейти в корзину'
-            size='middle'
-            style={{ backgroundColor: primaryGreen }}
-          />
+                  <RegularButton
+          onClick={withPreventDefaultEvents(() => router.push(appRoutes.cart))}
+          // leftIcon={<CartIcon />}
+          text='Перейти в корзину'
+          size='middle'
+          style={{ backgroundColor: primaryGreen }}
+        />
         )
       }
       return (

@@ -1,7 +1,9 @@
+'use client'
+
 import { useEffect } from 'react'
 import { Flex, GetProp, MenuProps } from 'antd'
 import { observer } from 'mobx-react-lite'
-import { NavLink } from 'react-router-dom'
+import NextLink from 'next/link'
 import styled from 'styled-components'
 import { appRoutes } from '@/app-settings'
 import { buyerCabinetStore } from '@/features/buyer'
@@ -27,34 +29,34 @@ const CountNumber = styled(Flex)({
 const menuItems: (menuItemsCount: IMenuItemsCount) => MenuItem[] = (menuItemsCount: IMenuItemsCount) => [
   {
     key: appRoutes.buyer.root,
-    label: <NavLink to={appRoutes.buyer.root}>Главная</NavLink>,
+    label: <NextLink href={appRoutes.buyer.root}>Главная</NextLink>,
   },
   {
     key: appRoutes.buyer.orders.root,
     label: (
       <Flex gap={8} align='center'>
-        <NavLink to={appRoutes.buyer.orders.root}>Заказы</NavLink>
+        <NextLink href={appRoutes.buyer.orders.root}>Заказы</NextLink>
         <CountNumber>{menuItemsCount?.allOrders ?? 0}</CountNumber>
       </Flex>
     ),
   },
   {
     key: appRoutes.buyer.profile,
-    label: <NavLink to={appRoutes.buyer.profile}>Профиль</NavLink>,
+    label: <NextLink href={appRoutes.buyer.profile}>Профиль</NextLink>,
   },
   // {
   //   key: appRoutes.buyer.favorites,
-  //   label: <NavLink to={appRoutes.buyer.favorites}>Избранное</NavLink>,
+  //   label: <NextLink href={appRoutes.buyer.favorites}>Избранное</NextLink>,
   // },
   // {
   //   key: appRoutes.buyer.comparisons,
-  //   label: <NavLink to={appRoutes.buyer.comparisons}>Сравнения</NavLink>,
+  //   label: <NextLink href={appRoutes.buyer.comparisons}>Сравнения</NextLink>,
   // },
   {
     key: appRoutes.buyer.notifications,
     label: (
       <Flex gap={8} align='center'>
-        <NavLink to={appRoutes.buyer.notifications}>Уведомления</NavLink>
+        <NextLink href={appRoutes.buyer.notifications}>Уведомления</NextLink>
         {/* <CountNumber>{menuItemsCount.allNotifications ?? 0}</CountNumber> */}
       </Flex>
     ),

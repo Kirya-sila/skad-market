@@ -1,7 +1,9 @@
+'use client'
+
 import { FC } from 'react'
 import { ConfigProvider, Flex, GetProp, Menu, MenuProps } from 'antd'
 import useToken from 'antd/es/theme/useToken'
-import { useLocation } from 'react-router-dom'
+import { usePathname } from 'next/navigation'
 import styled from 'styled-components'
 import { primaryBlack, primaryDarkGray } from '@/theme'
 
@@ -37,7 +39,7 @@ const StyledMenu = styled(Menu)({
 })
 
 export const PersonalCabinetSideMenu: FC<{ menuItems: MenuItem[] }> = ({ menuItems }) => {
-  const location = useLocation()
+  const pathname = usePathname()
 
   return (
     <Flex>
@@ -57,7 +59,7 @@ export const PersonalCabinetSideMenu: FC<{ menuItems: MenuItem[] }> = ({ menuIte
         <StyledMenu
           style={{ borderInlineEnd: 'none' }}
           //   defaultSelectedKeys={[selected]}
-          selectedKeys={[location.pathname]}
+          selectedKeys={[pathname]}
           mode='inline'
           theme='light'
           items={menuItems}

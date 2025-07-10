@@ -1,5 +1,8 @@
+'use client'
+
 import cn from 'classnames'
-import { NavLink } from 'react-router-dom'
+import NextLink from 'next/link'
+import { usePathname } from 'next/navigation'
 import css from './TabBarButton.module.scss'
 import { ITabBarButton } from './interfaces'
 
@@ -9,19 +12,20 @@ interface TabBarLinkButtonProps extends ITabBarButton {
 }
 
 export const TabBarLinkButton = ({ className, icon, label, path, badge }: TabBarLinkButtonProps) => {
+  const pathname = usePathname()
+  const isActive = pathname === path
+
   return (
-    <NavLink
+    <NextLink
       className={cn(css.tabLink, className)}
-      to={path}
+      href={path}
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >
-      {({ isActive }) => (
-        <div className={cn(css.tabButtonLink, { [css.tabButtonActive]: isActive })}>
-          <div>{icon}</div>
-          {!!badge && <div className={css.badge}>{badge > 99 ? '99+' : badge}</div>}
-          <div className={css.label}>{label}</div>
-        </div>
-      )}
-    </NavLink>
+      <div className={cn(css.tabButtonLink, { [css.tabButtonActive]: isActive })}>
+        <div>{icon}</div>
+        {!!badge && <div className={css.badge}>{badge > 99 ? '99+' : badge}</div>}
+        <div className={css.label}>{label}</div>
+      </div>
+    </NextLink>
   )
 }

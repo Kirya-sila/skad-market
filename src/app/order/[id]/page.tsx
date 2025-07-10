@@ -1,4 +1,6 @@
+import { Suspense } from 'react'
 import { Order } from '@/pages/Order'
+import { Spinner } from '@/shared/ui/Spinner'
 
 interface OrderPageProps {
   params: {
@@ -7,5 +9,9 @@ interface OrderPageProps {
 }
 
 export default function OrderPage({ params }: OrderPageProps) {
-  return <Order orderId={params.id} />
+  return (
+    <Suspense fallback={<Spinner />}>
+      <Order orderId={params.id} />
+    </Suspense>
+  )
 }

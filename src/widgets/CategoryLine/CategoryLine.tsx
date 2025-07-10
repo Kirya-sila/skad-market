@@ -1,10 +1,12 @@
+'use client'
+
 import brakeDiskImg from '@assets/images/brake-disk_100x100.png'
 import rimImg from '@assets/images/rim_110x110.png'
 import tireImg from '@assets/images/tire_100x100.png'
 import { CategoryCard } from '@shared/ui/CategoryCard'
 import { ImageLoader } from '@shared/ui/ImageLoader'
 import cn from 'classnames'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import css from './CategoryLine.module.scss'
 import { appRoutes } from '@/app-settings'
 
@@ -14,12 +16,12 @@ interface CategoryLineProps {
 }
 
 export const CategoryLine = ({ className, onClick }: CategoryLineProps) => {
-  const navigate = useNavigate()
+  const router = useRouter()
   const clickHandler = (path: string) => {
     if (onClick) {
       onClick()
     }
-    navigate(path)
+    router.push(path)
   }
   return (
     <div className={cn(css.categoryLine, className)}>

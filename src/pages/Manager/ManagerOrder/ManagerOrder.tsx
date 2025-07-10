@@ -1,7 +1,8 @@
+'use client'
+
 import { useEffect } from 'react'
 import { Flex, Space, Spin, Typography } from 'antd'
 import { observer } from 'mobx-react-lite'
-import { useParams } from 'react-router-dom'
 import { CancelOrderConfirmModal, CancelOrderModal, OrderCanceledInfoModal } from './CancelOrder'
 import { ChooseManager } from './ChooseManager/ChooseManager'
 import { DeliveryOrder } from './DeliveryOrder'
@@ -16,8 +17,11 @@ import { managersOrderStore } from '@/features/manager'
 
 const { Text, Title } = Typography
 
-export const ManagerOrder = observer(() => {
-  const { orderId = '' } = useParams()
+interface ManagerOrderProps {
+  orderId: string
+}
+
+export const ManagerOrder = observer(({ orderId }: ManagerOrderProps) => {
   const {
     ortderTab,
     getManagersOrder,
@@ -34,7 +38,7 @@ export const ManagerOrder = observer(() => {
   useEffect(() => {
     getManagersOrder(orderId)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [orderId])
 
   if (orderDataLoading) {
     return <Spin />

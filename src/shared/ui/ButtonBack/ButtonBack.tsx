@@ -1,3 +1,5 @@
+'use client'
+
 import { useRouter } from 'next/navigation'
 import { Button } from 'antd'
 import { ArrowLeftOutlined } from '@ant-design/icons'

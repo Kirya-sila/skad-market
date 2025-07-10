@@ -1,6 +1,9 @@
+'use client'
+
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { GetProp, MenuProps, Typography } from 'antd'
-import { NavLink, useMatches } from 'react-router-dom'
+import NextLink from 'next/link'
+import { usePathname } from 'next/navigation'
 import { appRoutes } from '@/app-settings'
 import { PersonalCabinetSideMenu } from '@/shared/ui'
 
@@ -11,19 +14,19 @@ const { Text } = Typography
 const getItems: (isShopSeleted: boolean) => MenuItem[] = (isShopSeleted: boolean) => [
   {
     key: appRoutes.manager.settings.profile,
-    label: <NavLink to={appRoutes.manager.settings.profile}>Профиль</NavLink>,
+    label: <NextLink href={appRoutes.manager.settings.profile}>Профиль</NextLink>,
   },
   {
     key: appRoutes.manager.settings.employees,
-    label: <NavLink to={appRoutes.manager.settings.employees}>Сотрудники</NavLink>,
+    label: <NextLink href={appRoutes.manager.settings.employees}>Сотрудники</NextLink>,
   },
   {
     key: appRoutes.manager.settings.merchants,
-    label: <NavLink to={appRoutes.manager.settings.merchants}>Продавцы</NavLink>,
+    label: <NextLink href={appRoutes.manager.settings.merchants}>Продавцы</NextLink>,
   },
   {
     key: appRoutes.manager.settings.buyers,
-    label: <NavLink to={appRoutes.manager.settings.buyers}>Покупатели</NavLink>,
+    label: <NextLink href={appRoutes.manager.settings.buyers}>Покупатели</NextLink>,
   },
   {
     key: 'shop',
@@ -37,15 +40,15 @@ const getItems: (isShopSeleted: boolean) => MenuItem[] = (isShopSeleted: boolean
   },
   {
     key: appRoutes.manager.settings.notifications,
-    label: <NavLink to={appRoutes.manager.settings.notifications}>Уведомления</NavLink>,
+    label: <NextLink href={appRoutes.manager.settings.notifications}>Уведомления</NextLink>,
   },
 ]
 
 export const SettingsMenu = () => {
-  const matches = useMatches()
+  const pathname = usePathname()
   const [isShopSelected, setShopSelected] = useState(false)
 
-  const isMatches = useMemo(() => matches.length > 1 && matches[1].pathname.includes('shop'), [matches])
+  const isMatches = useMemo(() => pathname.includes('shop'), [pathname])
 
   useEffect(() => {
     setShopSelected(isMatches)

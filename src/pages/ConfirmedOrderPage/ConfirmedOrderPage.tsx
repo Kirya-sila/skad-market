@@ -1,5 +1,6 @@
+'use client'
+
 import { observer } from 'mobx-react-lite'
-import { useParams } from 'react-router-dom'
 import css from './ConfirmedOrderPage.module.scss'
 import { Contacts } from './Contacts'
 import { buyerAccessToken } from '@/constants'
@@ -9,8 +10,11 @@ import { MainLayout } from '@/layouts/MainLayout'
 import { CatalogButtons, FlexColumn, FlexRow } from '@/shared/ui'
 import { Footer } from '@/widgets/Footer'
 
-export const ConfirmedOrderPage = observer(() => {
-  const { id } = useParams()
+interface ConfirmedOrderPageProps {
+  orderId: string
+}
+
+export const ConfirmedOrderPage = observer(({ orderId }: ConfirmedOrderPageProps) => {
   const { orderStatus, buyerInfo } = orderStore
   const tokenInfo = getInfoFromToken(localStorage.getItem(buyerAccessToken) ?? '')
 
@@ -18,7 +22,7 @@ export const ConfirmedOrderPage = observer(() => {
     <MainLayout>
       <FlexColumn classname={css.root}>
         <FlexColumn classname={css.mainContent}>
-          <span className={css.title}>{orderStatus ? `Заказ №${id} оплачен` : `Заказ №${id} принят в работу`}</span>
+          <span className={css.title}>{orderStatus ? `Заказ №${orderId} оплачен` : `Заказ №${orderId} принят в работу`}</span>
           <FlexRow classname={css.contentBody}>
             <FlexColumn classname={css.mainTextContainer}>
               <span className={css.thankYouText}>

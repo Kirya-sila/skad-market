@@ -1,10 +1,12 @@
+'use client'
+
 import { ReactNode } from 'react'
 import { PromoButton, PromoButtonProps } from '@shared/ui'
 import { ColorFilter } from '@shared/ui/ColorFilter/ColorFilter'
 import { HoverSlider } from '@shared/ui/HoverSlider'
 import { ProductAvailabilityAndReviews } from '@shared/ui/ProductCard/ProductAvailabilityAndReviews'
 import cn from 'classnames'
-import { NavLink, generatePath, useMatch } from 'react-router-dom'
+import NextLink from 'next/link'
 import { BottomAction } from './BottomAction'
 import { Price } from './Price'
 import css from './ProductCard.module.scss'
@@ -56,10 +58,9 @@ export const ProductCard = ({
   return (
     <Flex vertical style={{ padding: 12, borderRadius: 20 }}>
       <div className={cn(css.productCard, className, { [css.notAvailable]: !available })} /* onClick={onClick} */>
-        <NavLink
+        <NextLink
           className={css.link}
-          to={{ pathname: generatePath(appRoutes.rimsItem, { wheelCode }) }}
-          state={{ fromCatalog }}
+          href={appRoutes.rimsItem.replace(':wheelCode', wheelCode)}
           onClick={onClick}
         >
           <div className={css.thumbnail}>
@@ -97,8 +98,8 @@ export const ProductCard = ({
             <div className={css.title}>{title}</div>
           </div>
           {renderTitleFooter}
-          <div className={css.action}>{renderBottomActions}</div>
-        </NavLink>
+          <div className={css.action}>{renderBottomActions}          </div>
+        </NextLink>
       </div>
     </Flex>
   )

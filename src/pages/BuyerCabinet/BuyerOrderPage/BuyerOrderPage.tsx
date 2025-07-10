@@ -1,8 +1,10 @@
+'use client'
+
 import { useEffect } from 'react'
 import { Col, Flex, Row, Typography } from 'antd'
 import { observer } from 'mobx-react-lite'
 import moment from 'moment'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { FaqSection, HandleOrderButtons, PaymentStatus } from '../components'
 import { getOrderStatus } from '../helpers'
 import { BuyerInfoSection } from './BuyerInfoContainer'
@@ -20,13 +22,16 @@ import { ButtonBack } from '@/shared/ui'
 
 const { Title } = Typography
 
-export const BuyerOrderPage = observer(() => {
-  const navigate = useNavigate()
+interface BuyerOrderPageProps {
+  orderId: string
+}
+
+export const BuyerOrderPage = observer(({ orderId }: BuyerOrderPageProps) => {
+  const router = useRouter()
   const { width } = useWindowSize()
   const isTablet = width < 1024
   // const { isTablet, isMobile } = useWindowState()
   const { currentOrder, getOrder } = buyerCabinetStore
-  const { orderId = '' } = useParams()
 
   useEffect(() => {
     if (orderId) {
@@ -56,7 +61,7 @@ export const BuyerOrderPage = observer(() => {
             gap={8}
           >
             {isTablet && (
-              <Flex onClick={() => navigate(appRoutes.buyer.orders.root)} style={{ cursor: 'pointer' }}>
+              <Flex onClick={() => router.push(appRoutes.buyer.orders.root)} style={{ cursor: 'pointer' }}>
                 <BackArrow />
               </Flex>
             )}

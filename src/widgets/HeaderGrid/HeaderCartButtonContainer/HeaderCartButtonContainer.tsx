@@ -1,6 +1,8 @@
+'use client'
+
 import { FC, useEffect } from 'react'
 import { observer } from 'mobx-react-lite'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { usePathname, useRouter } from 'next/navigation'
 import { appRoutes } from '@/app-settings'
 import { CartIcon } from '@/assets/icons'
 import { cartStore } from '@/features/cart'
@@ -12,8 +14,8 @@ interface IHeaderCartButton {
 }
 
 export const HeaderCartButtonContainer: FC<IHeaderCartButton> = observer(({ className, bottomLineButtonSize }) => {
-  const navigate = useNavigate()
-  const { pathname } = useLocation()
+  const router = useRouter()
+  const pathname = usePathname()
   const { totalItemsInCart, getCartItems } = cartStore
 
   useEffect(() => {
@@ -21,10 +23,10 @@ export const HeaderCartButtonContainer: FC<IHeaderCartButton> = observer(({ clas
       getCartItems()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [pathname])
 
   const goToCart = () => {
-    navigate(appRoutes.cart)
+    router.push(appRoutes.cart)
   }
 
   return (
