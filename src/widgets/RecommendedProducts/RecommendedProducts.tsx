@@ -1,9 +1,11 @@
+'use client'
+
 import { useEffect } from 'react'
 import { handleToggleProductActions } from '@shared/libs'
 import { ProductCard } from '@shared/ui/ProductCard'
 import cn from 'classnames'
 import { observer } from 'mobx-react-lite'
-import { generatePath, useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import css from './RecommendedProducts.module.scss'
 import { appRoutes } from '@/app-settings'
 import { comparisonStore } from '@/features/comparison/model'
@@ -27,7 +29,7 @@ interface RecommendedProductsProps {
 // }
 
 export const RecommendedProducts = observer(({ className, count, title }: RecommendedProductsProps) => {
-  const navigate = useNavigate()
+  const router = useRouter()
   const { recommendRimsItems, getRecommendRimsItems } = recommendRimsItemsStore
 
   useEffect(() => {
@@ -39,7 +41,7 @@ export const RecommendedProducts = observer(({ className, count, title }: Recomm
   const handleAddComparison = handleToggleProductActions(comparisonStore, 'comparison', recommendRimsItems)
 
   const handleProductClick = (wheelCode: string | number) => {
-    navigate(generatePath(appRoutes.rimsItem, { wheelCode }))
+    router.push(appRoutes.rimsItem.replace(':wheelCode', wheelCode.toString()))
   }
 
   return (

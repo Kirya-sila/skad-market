@@ -1,8 +1,10 @@
+'use client'
+
 import { useEffect, useMemo } from 'react'
 import { Flex } from 'antd'
 import classNames from 'classnames'
 import { observer } from 'mobx-react-lite'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { AllCharacteristicsBody, BuyBody, ComprassionBody, ImagesBody, ShortInfoBody } from '../components'
 import { InSetYouGet } from '../components/bodies/InSetYouGet'
 import { PaymentConditions } from '../components/bodies/PaymentConditions'
@@ -20,11 +22,13 @@ import { ButtonBack } from '@/shared/ui'
 import { Spinner } from '@/shared/ui/Spinner'
 import { YouHaveSeenSection, YouMayBeInterestedSection } from '@/widgets'
 
-export const CatalogItem = observer(() => {
+interface CatalogItemProps {
+  wheelCode: string
+}
+
+export const CatalogItem = observer(({ wheelCode }: CatalogItemProps) => {
   const { isLaptop, isDesktop, isMobile, isTablet } = useWindowState()
-  const location = useLocation()
-  const navigate = useNavigate()
-  const { wheelCode = '' } = useParams()
+  const router = useRouter()
 
   const { loadOneRim, loadCompatibleCars, isLoading, currentRim } = rimsStore
   const { currentCar } = searchCarStore
@@ -38,9 +42,9 @@ export const CatalogItem = observer(() => {
       getSimilarRimsItemsGrouped(wheelCode)
       getRecommendRimsItemsGrouped()
     } else {
-      navigate(appRoutes.rims)
+      router.push(appRoutes.rims)
     }
-  }, [wheelCode])
+  }, [wheelCode, router])
 
   const refreshPageData = (wheelCode: string) => {
     // loadOneRim(wheelCode)
@@ -52,11 +56,7 @@ export const CatalogItem = observer(() => {
   const title = useMemo(() => currentRim?.offerName.split('Арт.')[0] ?? '', [currentRim?.offerName])
 
   const handleBack = () => {
-    if (location.state?.fromCatalog) {
-      navigate(appRoutes.rims, { state: { fromDetails: true } })
-    } else {
-      navigate(-1)
-    }
+    router.back()
   }
 
   if (!currentRim) {

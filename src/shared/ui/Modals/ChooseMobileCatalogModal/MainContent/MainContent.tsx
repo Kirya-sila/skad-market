@@ -1,5 +1,7 @@
+'use client'
+
 import { FC, useCallback, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { SearchInput } from '../../../SearchInput'
 import css from './MainContent.module.scss'
 import { appRoutes } from '@/app-settings'
@@ -12,7 +14,7 @@ interface IMainContentprops {
 }
 
 export const MainContent: FC<IMainContentprops> = ({ onClose }) => {
-  const navigate = useNavigate()
+  const router = useRouter()
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [productSearchText, , onChangeProductSearchText] = useInput()
 
@@ -30,7 +32,7 @@ export const MainContent: FC<IMainContentprops> = ({ onClose }) => {
   }, [productSearchText])
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const handleSearchByCar = useCallback(() => navigate(appRoutes.rims), [])
+  const handleSearchByCar = useCallback(() => router.push(appRoutes.rims), [router])
 
   // const handleFocus = () => {
   //   setSearching(true)

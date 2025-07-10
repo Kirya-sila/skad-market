@@ -1,10 +1,10 @@
 import { Suspense } from 'react'
 import { Spinner } from '@/shared/ui/Spinner'
 
-export default function TyresPage() {
+export default function BuyerProfile() {
   return (
     <Suspense fallback={<Spinner />}>
-      <div>Каталог шин</div>
+      <div>Профиль покупателя</div>
     </Suspense>
   )
 }

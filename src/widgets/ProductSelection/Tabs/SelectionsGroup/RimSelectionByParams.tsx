@@ -1,16 +1,18 @@
+'use client'
+
 import { useEffect } from 'react'
 import { FormikSelectionInput } from '@shared/ui/SelectionInput'
 import { Flex } from 'antd'
 import { Form, Formik } from 'formik'
 import { observer } from 'mobx-react-lite'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { appRoutes } from '@/app-settings'
 import { quickChoiceByParamsStore } from '@/features/quickChoice/quickChoiceByParamsStore'
 import { IRimSpecifications, RimSpecifications } from '@/interfaces'
 import { RegularButton } from '@/shared/ui'
 
 export const RimSelectionByParams = observer(() => {
-  const navigate = useNavigate()
+  const router = useRouter()
 
   const {
     loadRimsData,
@@ -39,7 +41,7 @@ export const RimSelectionByParams = observer(() => {
 
   const onSubmit = async (values: IRimSpecifications) => {
     await loadRimsData(values)
-    navigate(appRoutes.rims)
+    router.push(appRoutes.rims)
   }
 
   const onSelect = (name: string, value: string | number) => {

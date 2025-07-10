@@ -1,10 +1,12 @@
+'use client'
+
 import { useEffect } from 'react'
 import { filterTrueKeys, useToggle, useWindowState } from '@shared/libs'
 import { BreadcrumbsLine } from '@shared/ui/Breadcrumbs'
 import { FilterButton } from '@shared/ui/FiterButton'
 import CatalogMobileFilters from '@shared/ui/Modals/CatalogFiltersModal/CatalogMobileFilters'
 import { observer } from 'mobx-react-lite'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import css from './Catalog.module.scss'
 import { CatalogMetatags } from './CatalogMetatags'
 import { ProductCardsListContainerGrouped } from './ProductCardsListContainerGrouped'
@@ -22,7 +24,7 @@ interface CatalogProps {
 }
 
 export const Catalog = observer(({ className }: CatalogProps) => {
-  const navigate = useNavigate()
+  const router = useRouter()
   const { activeFilters, parameterCategories } = rimsStore
   const { getTitle } = searchCarStore
   const { resetAddedItemsToCart } = cartStore
@@ -35,7 +37,7 @@ export const Catalog = observer(({ className }: CatalogProps) => {
   }, [])
 
   const handleNavigate = (path: string) => () => {
-    navigate(path)
+    router.push(path)
   }
 
   return (

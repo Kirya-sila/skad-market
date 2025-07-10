@@ -1,7 +1,9 @@
+'use client'
+
 import { FC, ReactNode } from 'react'
 import productCardImageSrc3 from '@assets/images/product_card_image_3.png'
 import { Flex } from 'antd'
-import { generatePath, useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import css from './OrderItem.module.scss'
 import { appRoutes } from '@/app-settings'
 import { ImageLoader } from '@/shared/ui/ImageLoader'
@@ -15,7 +17,7 @@ interface IOrderItem {
 }
 
 export const OrderItem: FC<IOrderItem> = ({ image, wheelCode, title, secodRow, thirdRow }) => {
-  const navigate = useNavigate()
+  const router = useRouter()
   return (
     <Flex className={css.imageWithContent}>
       <Flex className={css.checkboxImageConatiner}>
@@ -26,7 +28,7 @@ export const OrderItem: FC<IOrderItem> = ({ image, wheelCode, title, secodRow, t
           className={css.title}
           onClick={() => {
             if (wheelCode) {
-              navigate(generatePath(appRoutes.rimsItem, { wheelCode }))
+              router.push(appRoutes.rimsItem.replace(':wheelCode', wheelCode))
             }
           }}
         >

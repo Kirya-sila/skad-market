@@ -1,8 +1,10 @@
+'use client'
+
 import { useGetRimsByCar, useNavigateWithScrollUp } from '@shared/libs'
 import { ModalBaseHeader } from '@shared/ui/Modals'
 import ModalBase from '@shared/ui/Modals/ModalBase/ModalBase'
 import { observer } from 'mobx-react-lite'
-import { useMatch } from 'react-router-dom'
+import { usePathname } from 'next/navigation'
 import { SearchByCarFooter, TopBar } from '../../SearchRimsByCarModel'
 import { CarsBody } from '../../SearchRimsByCarModel/CarsBody'
 import css from './SearchCarModal.module.scss'
@@ -18,7 +20,8 @@ export interface SearchCarModalProps {
 }
 
 const SearchCarModal = observer(({ className, onClose, initialCar, initialCarModels }: SearchCarModalProps) => {
-  const isRimDetails = useMatch(appRoutes.rimsItem)
+  const pathname = usePathname()
+  const isRimDetails = pathname?.includes('/rims/') && !pathname?.endsWith('/rims')
   const navigate = useNavigateWithScrollUp()
   const { brandCountries } = searchCarStore
 

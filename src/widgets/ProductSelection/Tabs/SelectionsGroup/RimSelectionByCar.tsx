@@ -1,8 +1,10 @@
+'use client'
+
 import { FormikSelectionInput } from '@shared/ui/SelectionInput'
 import { Flex } from 'antd'
 import { Form, Formik } from 'formik'
 import { observer } from 'mobx-react-lite'
-import { useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { appRoutes } from '@/app-settings'
 import searchCarStore from '@/features/SearchCar/model/searchCarStore'
 import { quickChoiceByCarStore } from '@/features/quickChoice'
@@ -25,7 +27,7 @@ interface ICarSpecification {
 }
 
 export const RimSelectionByCar = observer(({ className }: RimSelectionByCarProps) => {
-  const navigate = useNavigate()
+  const router = useRouter()
   const { carBrandsList, brandModelsList, generationsList, getModelsByBrand, getGenerations } = quickChoiceByCarStore
   const { loadSpecifiedCarByCarId } = searchCarStore
   // const [carSpecification, setCarSpecification] = useState<ICarSpecification>({ brand: '', model: '', generation: '' })
@@ -38,7 +40,7 @@ export const RimSelectionByCar = observer(({ className }: RimSelectionByCarProps
 
   const onSubmit = (values: ICarSpecification) => {
     loadSpecifiedCarByCarId(values[CarSpecifications.generation] ?? 0)
-    navigate(appRoutes.rims)
+    router.push(appRoutes.rims)
   }
 
   const onChange =

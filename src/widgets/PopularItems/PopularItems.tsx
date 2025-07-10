@@ -1,3 +1,5 @@
+'use client'
+
 import React, { ReactNode } from 'react'
 import cn from 'classnames'
 import css from './PopularItems.module.scss'
@@ -14,7 +16,7 @@ import { createImageList, handleToggleProductActions } from '@shared/libs'
 import { favoritesStore } from '@/features/favorites/model'
 import { comparisonStore } from '@/features/comparison/model'
 import { observer } from 'mobx-react-lite'
-import { generatePath, useNavigate } from 'react-router-dom'
+import { useRouter } from 'next/navigation'
 import { appRoutes } from '@/app-settings'
 
 interface NewProductsProps {
@@ -91,11 +93,11 @@ const NEW_PRODUCTS: NewProduct[] = [
 ]
 
 export const PopularItems = observer(({ className }: NewProductsProps) => {
-  const navigate = useNavigate()
+  const router = useRouter()
   const handleAddFavorite = handleToggleProductActions(favoritesStore, 'favorite', NEW_PRODUCTS)
   const handleAddComparison = handleToggleProductActions(comparisonStore, 'comparison', NEW_PRODUCTS)
   const handleProductClick = (wheelCode: string | number) => {
-    navigate(generatePath(appRoutes.rimsItem, { wheelCode }))
+    router.push(appRoutes.rimsItem.replace(':wheelCode', wheelCode.toString()))
   }
 
   return (
