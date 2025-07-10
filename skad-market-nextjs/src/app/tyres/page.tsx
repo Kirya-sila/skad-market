@@ -1,8 +1,6 @@
 import React from 'react'
-import { Tyres } from '@/original-pages/Tyres/Tyres'
+import { Tyres } from '@/components/tyres/Tyres'
 
-const TyresPage = () => {
+export default function TyresPage() {
   return <Tyres />
 }
-
-export default TyresPage

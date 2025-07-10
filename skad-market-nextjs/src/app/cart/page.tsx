@@ -1,12 +1,12 @@
 import React from 'react'
 import { Flex } from 'antd'
-import { Cart } from '@/original-pages/Cart/Cart'
-import { EmptyCart } from '@/original-pages/Cart/Rims/EmptyCart/EmptyCart'
+import { Cart } from '@/components/cart/Cart'
+import { EmptyCart } from '@/components/cart/EmptyCart'
 import { Spinner } from '@/shared/ui/Spinner'
 import { YouHaveSeenSection } from '@/widgets'
 import { useCart } from '@/lib/queries'
 
-const CartPage = () => {
+export default function CartPage() {
   const { data: cartData, isLoading } = useCart()
 
   const getCartContent = () => {
@@ -28,5 +28,3 @@ const CartPage = () => {
     </>
   )
 }
-
-export default CartPage
