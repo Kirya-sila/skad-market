@@ -1,31 +1,29 @@
-import React from 'react'
-import { BuyerContainer } from '@/original-pages/Order/BuyerContainer'
-import css from '@/original-pages/Order/Order.module.scss'
-import { OrderLayout } from '@/original-pages/Order/OrderLayout/OrderLayout'
-import { OrderSummary } from '@/original-pages/Order/OrderSummary'
-import { WayToGet } from '@/original-pages/Order/WayToGet'
-import { WayToPay } from '@/original-pages/Order/WayToPay'
-import { appRoutes } from '@/app-settings'
+import { OrderLayout } from '@/components/order/OrderLayout'
+import { OrderSummary } from '@/components/order/OrderSummary'
+import { BuyerContainer } from '@/components/order/BuyerContainer'
+import { WayToGet } from '@/components/order/WayToGet'
+import { WayToPay } from '@/components/order/WayToPay'
 import { ButtonBack, Flex, FlexColumn } from '@/shared/ui'
 import { Spinner } from '@/shared/ui/Spinner'
+import { appRoutes } from '@/app-settings'
 import { useOrder } from '@/lib/queries'
 
 interface OrderPageProps {
   params: { id: string }
 }
 
-const OrderPage = ({ params }: OrderPageProps) => {
+export default function OrderPage({ params }: OrderPageProps) {
   const { id } = params
   const { data: orderData, isLoading } = useOrder(id)
 
   return (
     <OrderLayout>
-      <FlexColumn classname={css.order}>
+      <FlexColumn classname='order'>
         <ButtonBack to={appRoutes.cart}>Вернуться в корзину</ButtonBack>
-        <span className={css.orderTitle}>Оформление заказа</span>
+        <span className='orderTitle'>Оформление заказа</span>
         {!isLoading ? (
-          <Flex classname={css.orderContainer}>
-            <FlexColumn classname={css.orderInfo}>
+          <Flex classname='orderContainer'>
+            <FlexColumn classname='orderInfo'>
               <BuyerContainer />
               <WayToGet />
               <WayToPay />
@@ -39,5 +37,3 @@ const OrderPage = ({ params }: OrderPageProps) => {
     </OrderLayout>
   )
 }
-
-export default OrderPage
