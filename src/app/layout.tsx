@@ -1,21 +1,19 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { ConfigProvider } from 'antd'
+import ruRU from 'antd/locale/ru_RU'
 import '@assets/typography/index.css'
 import '@shared/ui/styles/normalize.css'
 import '@shared/ui/styles/variables.css'
 import './globals.css'
-import { installExtensions } from '@/shared/extensions'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Skad Market - Интернет-магазин шин и дисков',
   description: 'Интернет-магазин шин и дисков Skadmarket с доставкой',
-}
-
-// Устанавливаем расширения при инициализации
-if (typeof window !== 'undefined') {
-  installExtensions()
+  viewport: 'width=device-width, initial-scale=1',
 }
 
 export default function RootLayout({
@@ -26,7 +24,11 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body className={inter.className}>
-        {children}
+        <ConfigProvider locale={ruRU}>
+          <Providers>
+            {children}
+          </Providers>
+        </ConfigProvider>
       </body>
     </html>
   )
